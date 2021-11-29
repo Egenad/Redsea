@@ -1,0 +1,63 @@
+-mjwx
+-i obj/redsea.ihx
+-b _CODE = 0x0694
+-b _DATA = 0x0000
+-u
+-k /home/miyas/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80
+-k /home/miyas/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/share/sdcc/lib/z80
+-l /home/miyas/cpctelera/cpctelera/cpctelera.lib
+-l z80
+obj/tiles/tile_palette.rel
+obj/sprites/nextlevel_text.rel
+obj/sprites/gameover_text.rel
+obj/sprites/Enemy.rel
+obj/sprites/thanks.rel
+obj/sprites/Vidas.rel
+obj/sprites/controls.rel
+obj/sprites/numbers.rel
+obj/sprites/title.rel
+obj/sprites/Pirate_Far.rel
+obj/sprites/Pirate_Close_3.rel
+obj/sprites/obstacle.rel
+obj/sprites/assets.rel
+obj/sprites/enemy2.rel
+obj/sprites/camarote.rel
+obj/sprites/mastil.rel
+obj/sprites/pirate_hero.rel
+obj/menu2_pack.rel
+obj/menu_pack.rel
+obj/level0_pack.rel
+music/shoot.rel
+music/true_theme.rel
+music/maintheme.rel
+obj/tiles/menu2.h.rel
+obj/tiles/menu.h.rel
+obj/tiles/level0.h.rel
+obj/tiles/Tileset.h.rel
+obj/bullet.rel
+obj/win.rel
+obj/controls.rel
+obj/player.h.rel
+obj/render.rel
+obj/gameover.rel
+obj/gameover.h.rel
+obj/menu2_pack.h.rel
+obj/obstacle.rel
+obj/menu.rel
+obj/enemy.rel
+obj/main.rel
+obj/obstacle.h.rel
+obj/enemy.h.rel
+obj/menu.h.rel
+obj/nextlevel.h.rel
+obj/main.h.rel
+obj/bullet.h.rel
+obj/nextlevel.rel
+obj/win.h.rel
+obj/player.rel
+obj/render.h.rel
+obj/level0_pack.h.rel
+obj/menu_pack.h.rel
+obj/controls.h.rel
+
+-e

@@ -1,0 +1,21 @@
+XL2
+H 9 areas 2 global symbols
+M g_pal
+O -mz80
+S .__.ABS. Def0000
+A _CODE size 10 flags 0 addr 0
+S _g_pal Def0000
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00
+R 00 00 00 00
+T 00 00 5C 54 44 55 5D 4C 57 5E 40 4E 47 52 53 4A
+R 00 00 00 00
+T 0E 00 43 4B
+R 00 00 00 00

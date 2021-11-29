@@ -1,0 +1,7 @@
+XL2
+H 1 areas 4 global symbols
+S init_controls Ref0000
+S _controls_sp Ref0000
+S .__.ABS. Def0000
+S _gameover_text_sp_1 Ref0000
+A _CODE size 0 flags 0 addr 0

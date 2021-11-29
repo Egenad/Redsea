@@ -1,0 +1,21 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.=  2710 L   |     .__.ABS.=  0000 G   |     .__.CPU.=  0000 L
+    .__.H$L.=  0000 L   |     _camarot   **** GX  |     _mastil_   **** GX
+    _obstacl   **** GX  |     _obstacl   **** GX  |     camarote   **** GX
+    mastil     **** GX  |     o_de    =  0000     |     o_life  =  0007 
+    o_size_d=  0006     |     ob_damag   **** GX  |     ob_draw    **** GX
+    ob_draw_   **** GX  |     ob_init    **** GX  |     ob_level   **** GX
+    ob_level   **** GX  |     ob_level   **** GX  |     ob_level   **** GX
+    ob_level   **** GX  |     obstacle   **** GX  |     obstacle   **** GX
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE      size    0   flags    0
+

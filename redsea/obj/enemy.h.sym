@@ -1,0 +1,29 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.=  2710 L   |     .__.ABS.=  0000 G   |     .__.CPU.=  0000 L
+    .__.H$L.=  0000 L   |     _enemy12   **** GX  |     _enemy12   **** GX
+    _enemy12   **** GX  |     _enemy12   **** GX  |     _enemy12   **** GX
+    _enemy12   **** GX  |     _enemy12   **** GX  |     _enemy12   **** GX
+    _enemy12   **** GX  |     _enemy2_   **** GX  |     _enemy2_   **** GX
+    _enemy2_   **** GX  |     e_anim  =  000A     |     e_de    =  0000 
+    e_shCloc=  000D     |     e_shDie =  000E     |     e_shooti=  000C 
+    e_size_d=  0006     |     e_spAct =  000B     |     e_up_h  =  0009 
+    e_up_l  =  0008     |     e_vx    =  0006     |     e_vy    =  0007 
+    enemy_ve   **** GX  |     enemy_wi   **** GX  |     ent_clea   **** GX
+    ent_doFo   **** GX  |     ent_draw   **** GX  |     ent_move   **** GX
+    ent_new_   **** GX  |     ent_new_   **** GX  |     ent_new_   **** GX
+    ent_star   **** GX  |     ent_star   **** GX  |     ent_star   **** GX
+    ent_star   **** GX  |     ent_star   **** GX  |     ent_star   **** GX
+    ent_updE   **** GX  |     ent_upda   **** GX  |     reset_en   **** GX
+    shootEff   **** GX
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE      size    0   flags    0
+

@@ -1,0 +1,704 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 1.
+Hexadecimal [16-Bits]
+
+
+
+                              1 ;;------------------------------------------------LICENSE NOTICE------------------------------------------------------------------------------
+                              2 ;;  This file is part of Amstrad CPC videogame "Redsea"
+                              3 ;;  Copyright (C) 2018 Gameroid / Angel Jesus Terol Martinez (@miya_nashi) / Raquel Gonzalez Roma (@kelara712) / Carla Macia Diez (@shiryuko)
+                              4 ;;  Copyright (C) 2015 ronaldo / Fremos / Cheesetea / ByteRealms (@FranGallegoBR)
+                              5 ;;
+                              6 ;;  This program is free software: you can redistribute it and/or modify
+                              7 ;;  it under the terms of the GNU Lesser General Public License as published by
+                              8 ;;  the Free Software Foundation, either version 3 of the License, or
+                              9 ;;  (at your option) any later version.
+                             10 ;;
+                             11 ;;  This program is distributed in the hope that it will be useful,
+                             12 ;;  but WITHOUT ANY WARRANTY; without even the implied warranty of
+                             13 ;;  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+                             14 ;;  GNU Lesser General Public License for more details.
+                             15 ;;
+                             16 ;;  You should have received a copy of the GNU Lesser General Public License
+                             17 ;;  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+                             18 ;;------------------------------------------------LICENSE NOTICE-------------------------------------------------------------------------
+                             19 
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+
+
+                             20 .include "bullet.h.s"
+                              1 ;;------------------------------------------------LICENSE NOTICE------------------------------------------------------------------------------
+                              2 ;;  This file is part of Amstrad CPC videogame "Redsea"
+                              3 ;;  Copyright (C) 2018 Gameroid / Angel Jesus Terol Martinez (@miya_nashi) / Raquel Gonzalez Roma (@kelara712) / Carla Macia Diez (@shiryuko)
+                              4 ;;  Copyright (C) 2015 ronaldo / Fremos / Cheesetea / ByteRealms (@FranGallegoBR)
+                              5 ;;
+                              6 ;;  This program is free software: you can redistribute it and/or modify
+                              7 ;;  it under the terms of the GNU Lesser General Public License as published by
+                              8 ;;  the Free Software Foundation, either version 3 of the License, or
+                              9 ;;  (at your option) any later version.
+                             10 ;;
+                             11 ;;  This program is distributed in the hope that it will be useful,
+                             12 ;;  but WITHOUT ANY WARRANTY; without even the implied warranty of
+                             13 ;;  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+                             14 ;;  GNU Lesser General Public License for more details.
+                             15 ;;
+                             16 ;;  You should have received a copy of the GNU Lesser General Public License
+                             17 ;;  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+                             18 ;;------------------------------------------------LICENSE NOTICE-------------------------------------------------------------------------
+                             19 
+                             20 .globl _assets_sp_1
+                             21 .globl bul_move
+                             22 .globl bul_update
+                             23 .globl bul_clear
+                             24 .globl bul_draw
+                             25 .globl bul_doForAll
+                             26 .globl bul_new
+                             27 .globl bullet_vector
+                             28 .globl reset_bullets
+                             29 
+                             30 .macro DefineBullet _name, _x, _y, _vx, _vy, _w, _h, _sprite, _upd
+                             31 _name: 
+                             32 	DefineDrawableEntity _name'_drawable, _x, _y, _w, _h, _sprite
+                             33    .db   _vx, _vy     ;; VX, VY
+                             34    .dw   _upd         ;; Update
+                             35 _name'_size = . - _name
+                             36 .endm
+                             37 
+                     0006    38 b_size_dw = 6
+                             39 
+                     0000    40 b_de = 0
+                     0006    41 b_vx = 0 + b_size_dw
+                     0007    42 b_vy = 1 + b_size_dw
+                     0008    43 b_up_l = 2 + b_size_dw
+                     0009    44 b_up_h = 3 + b_size_dw
+                             45 
+                             46 .macro DefineBulletDefault _name, _suf
+                             47 
+                             48 	DefineBullet _name'_suf, 0, 0, 0, 3, #0x04, #0x08, _assets_sp_1, bul_move
+                             49 
+                             50 .endm
+                             51 
+                             52 .macro DefineNBullets _name, _n
+                             53 	_c = 0
+                             54 	.rept _n
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 3.
+Hexadecimal [16-Bits]
+
+
+
+                             55 		DefineBulletDefault _name, \_c
+                             56 		_c=_c+1
+                             57 	.endm
+                             58 .endm
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 4.
+Hexadecimal [16-Bits]
+
+
+
+                             21 .include "render.h.s"
+                              1 ;;------------------------------------------------LICENSE NOTICE------------------------------------------------------------------------------
+                              2 ;;  This file is part of Amstrad CPC videogame "Redsea"
+                              3 ;;  Copyright (C) 2018 Gameroid / Angel Jesus Terol Martinez (@miya_nashi) / Raquel Gonzalez Roma (@kelara712) / Carla Macia Diez (@shiryuko)
+                              4 ;;  Copyright (C) 2015 ronaldo / Fremos / Cheesetea / ByteRealms (@FranGallegoBR)
+                              5 ;;
+                              6 ;;  This program is free software: you can redistribute it and/or modify
+                              7 ;;  it under the terms of the GNU Lesser General Public License as published by
+                              8 ;;  the Free Software Foundation, either version 3 of the License, or
+                              9 ;;  (at your option) any later version.
+                             10 ;;
+                             11 ;;  This program is distributed in the hope that it will be useful,
+                             12 ;;  but WITHOUT ANY WARRANTY; without even the implied warranty of
+                             13 ;;  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+                             14 ;;  GNU Lesser General Public License for more details.
+                             15 ;;
+                             16 ;;  You should have received a copy of the GNU Lesser General Public License
+                             17 ;;  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+                             18 ;;------------------------------------------------LICENSE NOTICE-------------------------------------------------------------------------
+                             19 
+                             20 .globl render_draw
+                             21 .globl render_clear
+                             22 .globl ren_newScene
+                             23 .globl m_back_buffer
+                             24 .globl render_clear_asset
+                             25 .globl render_clear_asset_both
+                             26 
+                             27 .macro DefineDrawableEntity _name, _x, _y, _w, _h, _s
+                             28 _name:
+                             29 	.db _x, _y
+                             30 	.db _w, _h
+                             31 	.dw _s
+                             32 .endm
+                     0000    33 de_x = 0
+                     0001    34 de_y = 1
+                     0002    35 de_w = 2
+                     0003    36 de_h = 3
+                     0004    37 de_sp_l = 4
+                     0005    38 de_sp_h = 5
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 5.
+Hexadecimal [16-Bits]
+
+
+
+                             22 .include "player.h.s"
+                              1 ;;------------------------------------------------LICENSE NOTICE------------------------------------------------------------------------------
+                              2 ;;  This file is part of Amstrad CPC videogame "Redsea"
+                              3 ;;  Copyright (C) 2018 Gameroid / Angel Jesus Terol Martinez (@miya_nashi) / Raquel Gonzalez Roma (@kelara712) / Carla Macia Diez (@shiryuko)
+                              4 ;;  Copyright (C) 2015 ronaldo / Fremos / Cheesetea / ByteRealms (@FranGallegoBR)
+                              5 ;;
+                              6 ;;  This program is free software: you can redistribute it and/or modify
+                              7 ;;  it under the terms of the GNU Lesser General Public License as published by
+                              8 ;;  the Free Software Foundation, either version 3 of the License, or
+                              9 ;;  (at your option) any later version.
+                             10 ;;
+                             11 ;;  This program is distributed in the hope that it will be useful,
+                             12 ;;  but WITHOUT ANY WARRANTY; without even the implied warranty of
+                             13 ;;  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+                             14 ;;  GNU Lesser General Public License for more details.
+                             15 ;;
+                             16 ;;  You should have received a copy of the GNU Lesser General Public License
+                             17 ;;  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+                             18 ;;------------------------------------------------LICENSE NOTICE-------------------------------------------------------------------------
+                             19 
+                             20 .globl pl_clear
+                             21 .globl pl_clear_mira
+                             22 .globl pl_move
+                             23 .globl pl_update
+                             24 .globl pl_draw
+                             25 .globl pl_moveKeyboard
+                             26 .globl pl_moveAsShooter
+                             27 .globl hero_data
+                             28 .globl shoot_data
+                             29 .globl _hero_sp_0
+                             30 .globl _hero_sp_1
+                             31 .globl _hero_sp_2
+                             32 .globl _hero_sp_3
+                             33 .globl _hero_sp_4
+                             34 .globl _hero_sp_5
+                             35 .globl _hero_sp_6
+                             36 .globl _hero_sp_7
+                             37 .globl _hero_sp_8
+                             38 .globl _assets_sp_0
+                             39 .globl get_Enemy
+                             40 .globl draw_Score
+                             41 .globl _numbers_00
+                             42 .globl _numbers_01
+                             43 .globl _numbers_02
+                             44 .globl _numbers_03
+                             45 .globl _numbers_04
+                             46 .globl _numbers_05
+                             47 .globl _numbers_06
+                             48 .globl _numbers_07
+                             49 .globl _numbers_08
+                             50 .globl _numbers_09
+                             51 .globl _lifes_0
+                             52 .globl _lifes_1
+                             53 .globl draw_Lifes
+                             54 .globl reduce_life
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 6.
+Hexadecimal [16-Bits]
+
+
+
+                             55 .globl reset_player
+                             56 .globl level
+                             57 
+                             58 .macro DefinePlayer _name, _x, _y, _vx, _vy, _w, _h, _sprite, _upd
+                             59 _name: 
+                             60 	DefineDrawableEntity _name'_drawable, _x, _y, _w, _h, _sprite
+                             61    .db   _vx, _vy     ;; VX, VY
+                             62    .dw   _upd         ;; Update 
+                             63 _name'_size = . - _name
+                             64 .endm
+                             65 
+                     0006    66 p_size_dw = 6
+                             67 
+                     0000    68 p_de = 0
+                     0006    69 p_vx = 0 + p_size_dw
+                     0007    70 p_vy = 1 + p_size_dw
+                     0008    71 p_up_l = 2 + p_size_dw
+                     0009    72 p_up_h = 3 + p_size_dw
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 7.
+Hexadecimal [16-Bits]
+
+
+
+                             23 .include "main.h.s"
+                              1 ;;------------------------------------------------LICENSE NOTICE------------------------------------------------------------------------------
+                              2 ;;  This file is part of Amstrad CPC videogame "Redsea"
+                              3 ;;  Copyright (C) 2018 Gameroid / Angel Jesus Terol Martinez (@miya_nashi) / Raquel Gonzalez Roma (@kelara712) / Carla Macia Diez (@shiryuko)
+                              4 ;;  Copyright (C) 2015 ronaldo / Fremos / Cheesetea / ByteRealms (@FranGallegoBR)
+                              5 ;;
+                              6 ;;  This program is free software: you can redistribute it and/or modify
+                              7 ;;  it under the terms of the GNU Lesser General Public License as published by
+                              8 ;;  the Free Software Foundation, either version 3 of the License, or
+                              9 ;;  (at your option) any later version.
+                             10 ;;
+                             11 ;;  This program is distributed in the hope that it will be useful,
+                             12 ;;  but WITHOUT ANY WARRANTY; without even the implied warranty of
+                             13 ;;  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+                             14 ;;  GNU Lesser General Public License for more details.
+                             15 ;;
+                             16 ;;  You should have received a copy of the GNU Lesser General Public License
+                             17 ;;  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+                             18 ;;------------------------------------------------LICENSE NOTICE-------------------------------------------------------------------------
+                             19 
+                             20 .globl cpct_disableFirmware_asm
+                             21 .globl cpct_setVideoMode_asm
+                             22 .globl cpct_waitVSYNC_asm
+                             23 .globl cpct_drawSolidBox_asm
+                             24 .globl cpct_getScreenPtr_asm
+                             25 .globl cpct_scanKeyboard_asm
+                             26 .globl cpct_isKeyPressed_asm
+                             27 .globl cpct_setVideoMemoryPage_asm
+                             28 .globl cpct_memset_f64_asm
+                             29 .globl cpct_drawSprite_asm
+                             30 .globl cpct_setPalette_asm
+                             31 .globl _hero_pal
+                             32 .globl _enemy_sc_sp
+                             33 .globl cpct_zx7b_decrunch_s_asm
+                             34 .globl _level0_pack_end
+                             35 .globl cpct_etm_setDrawTilemap4x8_ag_asm
+                             36 .globl cpct_etm_drawTilemap4x8_ag_asm
+                             37 .globl _level0_W
+                             38 .globl _tile_palette
+                             39 .globl tilemap_ptr
+                             40 .globl _menu_pack_end
+                             41 .globl _menu2_pack_end
+                             42 .globl reset_game_win
+                             43 .globl reset_game
+                             44 .globl cpct_getRandom_mxor_u8_asm
+                             45 .globl cpct_akp_musicInit_asm
+                             46 .globl cpct_akp_musicPlay_asm
+                             47 .globl cpct_akp_stop_asm
+                             48 .globl cpct_setInterruptHandler_asm
+                             49 .globl _main_theme
+                             50 .globl _true_theme
+                             51 .globl _shootSFX
+                             52 .globl cpct_akp_SFXInit_asm
+                             53 .globl cpct_akp_SFXPlay_asm
+                             54 .globl cpct_akp_SFXStop_asm
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 8.
+Hexadecimal [16-Bits]
+
+
+
+                             55 .globl cpct_setPALColour_asm
+                             56 .globl DecompressTilemap
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 9.
+Hexadecimal [16-Bits]
+
+
+
+                             24 
+   0000                      25 bullet_vector:
+   0000                      26 DefineNBullets bullet_vector, cont_bul
+                     0000     1 	_c = 0
+                              2 	.rept cont_bul
+                              3 		DefineBulletDefault bullet_vector, \_c
+                              4 		_c=_c+1
+                              5 	.endm
+   0000                       1 		DefineBulletDefault bullet_vector, \_c
+                              1 
+   0000                       2 	DefineBullet bullet_vector0, 0, 0, 0, 3, #0x04, #0x08, _assets_sp_1, bul_move
+   0000                       1 bullet_vector0: 
+   0000                       2 	DefineDrawableEntity bullet_vector0_drawable, 0, 0, #0x04, #0x08, _assets_sp_1
+   0000                       1 bullet_vector0_drawable:
+   0000 00 00                 2 	.db 0, 0
+   0002 04 08                 3 	.db #0x04, #0x08
+   0004 00 00                 4 	.dw _assets_sp_1
+   0006 00 03                 3    .db   0, 3     ;; VX, VY
+   0008 FC 00                 4    .dw   bul_move         ;; Update
+                     000A     5 bullet_vector0_size = . - bullet_vector0
+                              3 
+                     0001     2 		_c=_c+1
+   000A                       1 		DefineBulletDefault bullet_vector, \_c
+                              1 
+   000A                       2 	DefineBullet bullet_vector1, 0, 0, 0, 3, #0x04, #0x08, _assets_sp_1, bul_move
+   000A                       1 bullet_vector1: 
+   000A                       2 	DefineDrawableEntity bullet_vector1_drawable, 0, 0, #0x04, #0x08, _assets_sp_1
+   000A                       1 bullet_vector1_drawable:
+   000A 00 00                 2 	.db 0, 0
+   000C 04 08                 3 	.db #0x04, #0x08
+   000E 00 00                 4 	.dw _assets_sp_1
+   0010 00 03                 3    .db   0, 3     ;; VX, VY
+   0012 FC 00                 4    .dw   bul_move         ;; Update
+                     000A     5 bullet_vector1_size = . - bullet_vector1
+                              3 
+                     0002     2 		_c=_c+1
+   0014                       1 		DefineBulletDefault bullet_vector, \_c
+                              1 
+   0014                       2 	DefineBullet bullet_vector2, 0, 0, 0, 3, #0x04, #0x08, _assets_sp_1, bul_move
+   0014                       1 bullet_vector2: 
+   0014                       2 	DefineDrawableEntity bullet_vector2_drawable, 0, 0, #0x04, #0x08, _assets_sp_1
+   0014                       1 bullet_vector2_drawable:
+   0014 00 00                 2 	.db 0, 0
+   0016 04 08                 3 	.db #0x04, #0x08
+   0018 00 00                 4 	.dw _assets_sp_1
+   001A 00 03                 3    .db   0, 3     ;; VX, VY
+   001C FC 00                 4    .dw   bul_move         ;; Update
+                     000A     5 bullet_vector2_size = . - bullet_vector2
+                              3 
+                     0003     2 		_c=_c+1
+   001E                       1 		DefineBulletDefault bullet_vector, \_c
+                              1 
+   001E                       2 	DefineBullet bullet_vector3, 0, 0, 0, 3, #0x04, #0x08, _assets_sp_1, bul_move
+   001E                       1 bullet_vector3: 
+   001E                       2 	DefineDrawableEntity bullet_vector3_drawable, 0, 0, #0x04, #0x08, _assets_sp_1
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 10.
+Hexadecimal [16-Bits]
+
+
+
+   001E                       1 bullet_vector3_drawable:
+   001E 00 00                 2 	.db 0, 0
+   0020 04 08                 3 	.db #0x04, #0x08
+   0022 00 00                 4 	.dw _assets_sp_1
+   0024 00 03                 3    .db   0, 3     ;; VX, VY
+   0026 FC 00                 4    .dw   bul_move         ;; Update
+                     000A     5 bullet_vector3_size = . - bullet_vector3
+                              3 
+                     0004     2 		_c=_c+1
+   0028                       1 		DefineBulletDefault bullet_vector, \_c
+                              1 
+   0028                       2 	DefineBullet bullet_vector4, 0, 0, 0, 3, #0x04, #0x08, _assets_sp_1, bul_move
+   0028                       1 bullet_vector4: 
+   0028                       2 	DefineDrawableEntity bullet_vector4_drawable, 0, 0, #0x04, #0x08, _assets_sp_1
+   0028                       1 bullet_vector4_drawable:
+   0028 00 00                 2 	.db 0, 0
+   002A 04 08                 3 	.db #0x04, #0x08
+   002C 00 00                 4 	.dw _assets_sp_1
+   002E 00 03                 3    .db   0, 3     ;; VX, VY
+   0030 FC 00                 4    .dw   bul_move         ;; Update
+                     000A     5 bullet_vector4_size = . - bullet_vector4
+                              3 
+                     0005     2 		_c=_c+1
+   0032                       1 		DefineBulletDefault bullet_vector, \_c
+                              1 
+   0032                       2 	DefineBullet bullet_vector5, 0, 0, 0, 3, #0x04, #0x08, _assets_sp_1, bul_move
+   0032                       1 bullet_vector5: 
+   0032                       2 	DefineDrawableEntity bullet_vector5_drawable, 0, 0, #0x04, #0x08, _assets_sp_1
+   0032                       1 bullet_vector5_drawable:
+   0032 00 00                 2 	.db 0, 0
+   0034 04 08                 3 	.db #0x04, #0x08
+   0036 00 00                 4 	.dw _assets_sp_1
+   0038 00 03                 3    .db   0, 3     ;; VX, VY
+   003A FC 00                 4    .dw   bul_move         ;; Update
+                     000A     5 bullet_vector5_size = . - bullet_vector5
+                              3 
+                     0006     2 		_c=_c+1
+                             27 
+                             28 ;;default data for bullet in case we need to restart
+   003C                      29 DefineBullet bullet_default, 0, 0, 0, 3, #0x04, #0x08, _assets_sp_1, bul_move
+   003C                       1 bullet_default: 
+   003C                       2 	DefineDrawableEntity bullet_default_drawable, 0, 0, #0x04, #0x08, _assets_sp_1
+   003C                       1 bullet_default_drawable:
+   003C 00 00                 2 	.db 0, 0
+   003E 04 08                 3 	.db #0x04, #0x08
+   0040 00 00                 4 	.dw _assets_sp_1
+   0042 00 03                 3    .db   0, 3     ;; VX, VY
+   0044 FC 00                 4    .dw   bul_move         ;; Update
+                     000A     5 bullet_default_size = . - bullet_default
+                             30 
+                     0006    31 cont_bul = 6      
+                     000A    32 k_size_bul = bullet_vector0_size
+                             33 
+   0046 00                   34 active_bullets: .db 00
+   0047 00 00                35 m_next_bullet: .dw bullet_vector
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 11.
+Hexadecimal [16-Bits]
+
+
+
+   0049 00 00                36 copy_bul:	   .dw 00
+                             37 
+                             38 
+                             39 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                             40 ;;;;;;;;;;;;BUL_NEW;;;;;;;;;;;;;;;
+                             41 ;;;;;;creates a new bullet ;;;;;;;
+                             42 ;;;and changes its position to;;;;
+                             43 ;;;;the enemy who shooted it ;;;;;
+                             44 ;;;;;destroys: a, b, hl, de;;;;;;;
+                             45 ;;;;;arguments: ix -> enemy;;;;;;;
+                             46 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                             47 
+   004B                      48 bul_new:
+                             49 
+                             50 	;; if pos y is 0, no create bullet
+   004B DD 7E 01      [19]   51 	ld a, de_y(ix)
+   004E 3D            [ 4]   52 	dec a
+   004F FA 77 00      [10]   53 	jp m, no_crear_bul
+                             54 
+                             55 	;;if the array is full dont create a new bullet
+   0052 06 06         [ 7]   56 	ld b, #cont_bul
+   0054 3A 46 00      [13]   57 	ld a, (active_bullets)
+   0057 90            [ 4]   58 	sub b
+   0058 28 1D         [12]   59 	jr z, no_crear_bul
+                             60 
+                             61 	;;increments bullet counter
+   005A 3A 46 00      [13]   62 	ld a, (active_bullets)
+   005D 3C            [ 4]   63 	inc a
+   005E 32 46 00      [13]   64 	ld (active_bullets), a
+                             65 
+                             66 	;;increments bullet pointer
+   0061 2A 47 00      [16]   67 	ld hl, (m_next_bullet)
+   0064 11 0A 00      [10]   68 	ld de, #k_size_bul
+   0067 19            [11]   69 	add hl, de
+   0068 22 47 00      [16]   70 	ld (m_next_bullet), hl
+                             71 
+                             72 	;;points to the last bullet created and changes its position to the enemy who shooted it
+   006B B7            [ 4]   73 	or a
+   006C ED 52         [15]   74 	sbc hl, de
+                             75 
+   006E DD 7E 00      [19]   76 	ld a, de_x(ix)
+   0071 77            [ 7]   77 	ld (hl), a
+   0072 23            [ 6]   78 	inc hl
+   0073 DD 7E 01      [19]   79 	ld a, de_y(ix)
+   0076 77            [ 7]   80 	ld (hl), a
+                             81 
+   0077                      82 no_crear_bul:
+                             83 
+   0077 C9            [10]   84 ret
+                             85 
+                             86 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                             87 ;;;;;;;;;;;;BUL_COPY;;;;;;;;;;;;;;
+                             88 ;;copies data from one bullet;;;;;
+                             89 ;;;;;;;;;;;;to oher ;;;;;;;;;;;;;;
+                             90 ;;;;;destroys: hl, bc, de ;;;;;;;;
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 12.
+Hexadecimal [16-Bits]
+
+
+
+                             91 ;;;arguments: hl -> origin;;;;;;;;
+                             92 ;;;;;;;;;;;;;;de -> destiny;;;;;;;
+                             93 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                             94 
+   0078                      95 bul_copy:
+   0078 01 0A 00      [10]   96 	ld bc, #k_size_bul
+   007B ED B0         [21]   97 	ldir
+   007D C9            [10]   98 	ret
+                             99 
+                            100 
+                            101 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                            102 ;;;;;;;;;;;BUL_DESTROY;;;;;;;;;;;;
+                            103 ;;;;;; destroys a bullet ;;;;;;;;;
+                            104 ;;;arguments: ix -> bullet to ;;;;
+                            105 ;;;;;;;;;;;;;destroy;;;;;;;;;;;;;;
+                            106 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                            107 
+   007E                     108 bul_destroy:
+                            109 
+   007E 11 0A 00      [10]  110 	ld de, #k_size_bul
+   0081 2A 47 00      [16]  111 	ld hl, (m_next_bullet)
+   0084 B7            [ 4]  112 	or a
+   0085 ED 52         [15]  113 	sbc hl, de   			;;hl has de latest bullet created (our origin)
+   0087 DD 22 49 00   [20]  114 	ld (copy_bul), ix
+   008B ED 5B 49 00   [20]  115 	ld de, (copy_bul) 		;;we want to copy the data of the latest bullet to the bullet we are going to destroy, so we can just copy the default values on the last bullet of the array
+                            116 
+   008F CD 78 00      [17]  117 	call bul_copy  			;;now we have two equal bullets. We just need to erase the last one
+                            118 
+   0092 11 0A 00      [10]  119 	ld de, #k_size_bul
+   0095 2A 47 00      [16]  120 	ld hl, (m_next_bullet)
+   0098 B7            [ 4]  121 	or a
+   0099 ED 52         [15]  122 	sbc hl, de
+   009B 11 3C 00      [10]  123 	ld de, #bullet_default
+                            124 
+   009E EB            [ 4]  125 	ex de, hl
+                            126 
+   009F CD 78 00      [17]  127 	call bul_copy
+                            128 
+                            129 	;;decrease the active bullets counter
+   00A2 3A 46 00      [13]  130 	ld a, (active_bullets)
+   00A5 3D            [ 4]  131 	dec a 
+   00A6 32 46 00      [13]  132 	ld (active_bullets), a
+                            133 
+                            134 	;;and change the last bullet pointer
+   00A9 11 0A 00      [10]  135 	ld de, #k_size_bul
+   00AC 2A 47 00      [16]  136 	ld hl, (m_next_bullet)
+   00AF B7            [ 4]  137 	or a
+   00B0 ED 52         [15]  138 	sbc hl, de
+   00B2 22 47 00      [16]  139 	ld (m_next_bullet), hl
+                            140 
+   00B5 C9            [10]  141 	ret
+                            142 
+                            143 
+                            144 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                            145 ;;;;;;;;;;;;BUL_CLEAR;;;;;;;;;;;;;
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 13.
+Hexadecimal [16-Bits]
+
+
+
+                            146 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                            147 
+   00B6                     148 bul_clear:
+   00B6 C3 00 00      [10]  149 	jp render_clear_asset
+                            150 
+                            151 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                            152 ;;;;;;;;;;;BUL_UPDATE;;;;;;;;;;;;;
+                            153 ;;;;calls the method wich the ;;;;
+                            154 ;;entity has stored on its data;;;
+                            155 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                            156 
+   00B9                     157 bul_update:
+                            158 
+   00B9 DD 66 09      [19]  159 	ld     h, b_up_h(ix)
+   00BC DD 6E 08      [19]  160    	ld     l, b_up_l(ix)
+   00BF E9            [ 4]  161    	jp    (hl)
+                            162 
+                            163 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                            164 ;;;;;;;;;;;;BUL_DRAW;;;;;;;;;;;;;;
+                            165 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                            166 
+   00C0                     167 bul_draw:
+   00C0 C3 00 00      [10]  168 	jp render_draw
+                            169 
+                            170 
+                            171 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                            172 ;;;;;;;BUL_CHECKCOLPLAYER;;;;;;;;;
+                            173 ;;Check colision with the player;;
+                            174 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                            175 
+   00C3                     176 bul_checkColPlayer:
+                            177 
+   00C3 21 00 00      [10]  178 	ld hl, #hero_data
+                            179 
+                            180 	;;Check collision  bullet - hero
+                            181 
+   00C6 DD 7E 01      [19]  182 	ld a, de_y(ix)        ;;a=bullet_y
+   00C9 DD 46 03      [19]  183 	ld b, de_h(ix)	  	  ;;a=bullet_h
+   00CC 80            [ 4]  184 	add b         		  ;;a=bullet_y+bullet_h
+   00CD 23            [ 6]  185 	inc hl 				  ;;hl apunta a hero_y
+   00CE 46            [ 7]  186 	ld b, (hl)			  ;;b=hero_y
+   00CF 90            [ 4]  187 	sub b 				  ;;a=(bullet_y+bullet_h)-hero_y
+   00D0 28 29         [12]  188 	jr z, no_collision 	  
+   00D2 FA FB 00      [10]  189 	jp m, no_collision
+                            190 
+                            191 	;;check colision bullet - hero
+   00D5 DD 7E 00      [19]  192 	ld a, de_x(ix) 		  ;;a=bullet_x
+   00D8 DD 46 02      [19]  193 	ld b, de_w(ix)		  ;;b=bullet_w
+   00DB 80            [ 4]  194 	add b         		  ;;a=bullet_x+bullet_w
+   00DC 2B            [ 6]  195 	dec hl 				  ;;hl apunta a hero_x
+   00DD 46            [ 7]  196 	ld b, (hl)     		  ;;b=hero_x
+   00DE 90            [ 4]  197 	sub b 				  ;;a=(bullet_x+bullet_w)-hero_x
+   00DF 28 1A         [12]  198 	jr z, no_collision
+   00E1 FA FB 00      [10]  199 	jp m, no_collision
+                            200 
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 14.
+Hexadecimal [16-Bits]
+
+
+
+                            201 	;;check colision hero - bullet
+   00E4 7E            [ 7]  202 	ld a, (hl) 		  	  ;;a=hero_x
+   00E5 23            [ 6]  203 	inc hl
+   00E6 23            [ 6]  204 	inc hl
+   00E7 46            [ 7]  205 	ld b, (hl)			  ;;b=hero_w
+   00E8 80            [ 4]  206 	add b         		  ;;a=hero_x+hero_w
+   00E9 DD 46 00      [19]  207 	ld b, de_x(ix)   	  ;;b=bullet_x
+   00EC 90            [ 4]  208 	sub b 				  ;;a=(hero_x+hero_w)-bullet_x
+   00ED 28 0C         [12]  209 	jr z, no_collision 	  
+   00EF FA FB 00      [10]  210 	jp m, no_collision
+                            211 
+                            212 	;;kill player
+   00F2 CD 00 00      [17]  213 	call reduce_life
+                            214 	;;clear bullet
+   00F5 CD 00 00      [17]  215 	call render_clear_asset_both
+                            216 	;;destroy bullet
+   00F8 CD 7E 00      [17]  217 	call bul_destroy
+                            218 
+   00FB                     219 no_collision:
+                            220 
+   00FB C9            [10]  221 	ret
+                            222 
+                            223 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                            224 ;;;;;;;;;;;BUL_MOVE;;;;;;;;;;;;;;;
+                            225 ;;;moves bullet to its next;;;;;;;
+                            226 ;;position using its velocity ;;;;
+                            227 ;;;;;;;;;destroys: a, b;;;;;;;;;;;
+                            228 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                            229 
+   00FC                     230 bul_move:
+                            231 	
+   00FC CD C3 00      [17]  232 	call bul_checkColPlayer
+                            233 
+                            234 	;;if the bullet has reached the end -> destroy
+                            235 
+   00FF 3E 70         [ 7]  236 	ld a, #0x70
+   0101 DD 46 01      [19]  237 	ld b, de_y(ix)
+   0104 90            [ 4]  238 	sub b
+   0105 F2 0E 01      [10]  239 	jp p, dont_destroy_bullet
+   0108 CD 00 00      [17]  240 	call render_clear_asset_both
+   010B CD 7E 00      [17]  241 	call bul_destroy
+                            242 
+   010E                     243 dont_destroy_bullet:
+   010E DD 7E 01      [19]  244    	ld    a, de_y(ix) 
+   0111 DD 86 07      [19]  245    	add   b_vy(ix)
+   0114 DD 77 01      [19]  246    	ld    de_y(ix), a
+                            247 
+   0117 DD 7E 00      [19]  248    	ld    a, de_x(ix) 
+   011A DD 86 06      [19]  249    	add   b_vx(ix)
+   011D DD 77 00      [19]  250    	ld    de_x(ix), a
+                            251 
+   0120 C9            [10]  252 	ret
+                            253 
+                            254 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                            255 ;;;;;;;;;;BUL_DOFORALL;;;;;;;;;;;;
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 15.
+Hexadecimal [16-Bits]
+
+
+
+                            256 ;;;calls the method stored in HL;;
+                            257 ;;for the all the bullets stored;;
+                            258 ;;;;;;;;;;in the vector;;;;;;;;;;;
+                            259 ;;;;;;destroys: a, ix, bc, hl ;;;;
+                            260 ;;arguments: hl ->method to call;;
+                            261 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                            262 
+   0121                     263 bul_doForAll:
+                            264 
+                            265 	;;check if there are no bullets created
+   0121 3A 46 00      [13]  266 	ld a, (active_bullets)
+   0124 3D            [ 4]  267 	dec a
+   0125 FA 3F 01      [10]  268 	jp m, no_bullets
+                            269 
+   0128 3A 46 00      [13]  270 	ld a, (active_bullets) 
+   012B DD 21 00 00   [14]  271 	ld ix, #bullet_vector
+   012F 22 34 01      [16]  272 	ld (metodoB), hl
+   0132                     273 vuelve_bul:
+   0132 F5            [11]  274 	push af
+                     0134   275 	metodoB = . + 1
+   0133 CD C0 00      [17]  276 	call bul_draw    ;;this method will be changed for the method loaded in hl
+   0136 F1            [10]  277 	pop af
+   0137 01 0A 00      [10]  278 	ld bc, #k_size_bul 
+   013A DD 09         [15]  279 	add ix, bc
+   013C 3D            [ 4]  280 	dec a
+   013D 20 F3         [12]  281 	jr nz, vuelve_bul
+                            282 
+   013F                     283 no_bullets:
+                            284 
+   013F C9            [10]  285 ret
+                            286 
+                            287 
+                            288 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                            289 ;;;;;;;;;;;RESET_BULLETS;;;;;;;;;;
+                            290 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                            291 
+   0140                     292 reset_bullets:
+                            293 
+                            294 
+   0140 3A 46 00      [13]  295 	ld a, (active_bullets)
+   0143 3D            [ 4]  296 	dec a
+   0144 FA 56 01      [10]  297 	jp m, not
+   0147 3A 46 00      [13]  298 	ld a, (active_bullets)
+   014A                     299 non_stop2:
+   014A DD 21 00 00   [14]  300 	ld ix, #bullet_vector
+   014E F5            [11]  301 	push af
+   014F CD 7E 00      [17]  302 	call bul_destroy
+   0152 F1            [10]  303 	pop af 
+   0153 3D            [ 4]  304 	dec a
+   0154 20 F4         [12]  305 	jr nz, non_stop2
+   0156                     306 not:
+   0156 C9            [10]  307 	ret

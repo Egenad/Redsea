@@ -1,0 +1,62 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.=  2710 L   |     .__.ABS.=  0000 G   |     .__.CPU.=  0000 L
+    .__.H$L.=  0000 L   |     TILES_00=  0008     |     TILES_00=  0000 
+    TILES_00=  0020     |     TILES_00=  0004     |     TILES_01=  0008 
+    TILES_01=  0020     |     TILES_01=  0020     |     TILES_01=  0004 
+    TILES_02=  0008     |     TILES_02=  0040     |     TILES_02=  0020 
+    TILES_02=  0004     |     TILES_03=  0008     |     TILES_03=  0060 
+    TILES_03=  0020     |     TILES_03=  0004     |     TILES_04=  0008 
+    TILES_04=  0080     |     TILES_04=  0020     |     TILES_04=  0004 
+    TILES_05=  0008     |     TILES_05=  00A0     |     TILES_05=  0020 
+    TILES_05=  0004     |     TILES_06=  0008     |     TILES_06=  00C0 
+    TILES_06=  0020     |     TILES_06=  0004     |     TILES_07=  0008 
+    TILES_07=  00E0     |     TILES_07=  0020     |     TILES_07=  0004 
+    TILES_08=  0008     |     TILES_08=  0100     |     TILES_08=  0020 
+    TILES_08=  0004     |     TILES_09=  0008     |     TILES_09=  0120 
+    TILES_09=  0020     |     TILES_09=  0004     |     TILES_10=  0008 
+    TILES_10=  0140     |     TILES_10=  0020     |     TILES_10=  0004 
+    TILES_11=  0008     |     TILES_11=  0160     |     TILES_11=  0020 
+    TILES_11=  0004     |     TILES_12=  0008     |     TILES_12=  0180 
+    TILES_12=  0020     |     TILES_12=  0004     |     TILES_13=  0008 
+    TILES_13=  01A0     |     TILES_13=  0020     |     TILES_13=  0004 
+    TILES_14=  0008     |     TILES_14=  01C0     |     TILES_14=  0020 
+    TILES_14=  0004     |     TILES_15=  0008     |     TILES_15=  01E0 
+    TILES_15=  0020     |     TILES_15=  0004     |     TILES_16=  0008 
+    TILES_16=  0200     |     TILES_16=  0020     |     TILES_16=  0004 
+    TILES_17=  0008     |     TILES_17=  0220     |     TILES_17=  0020 
+    TILES_17=  0004     |     TILES_18=  0008     |     TILES_18=  0240 
+    TILES_18=  0020     |     TILES_18=  0004     |     TILES_19=  0008 
+    TILES_19=  0260     |     TILES_19=  0020     |     TILES_19=  0004 
+    TILES_20=  0008     |     TILES_20=  0280     |     TILES_20=  0020 
+    TILES_20=  0004     |     TILES_21=  0008     |     TILES_21=  02A0 
+    TILES_21=  0020     |     TILES_21=  0004     |     TILES_22=  0008 
+    TILES_22=  02C0     |     TILES_22=  0020     |     TILES_22=  0004 
+    TILES_23=  0008     |     TILES_23=  02E0     |     TILES_23=  0020 
+    TILES_23=  0004     |     TILES_24=  0008     |     TILES_24=  0300 
+    TILES_24=  0020     |     TILES_24=  0004     |     TILES_25=  0008 
+    TILES_25=  0320     |     TILES_25=  0020     |     TILES_25=  0004 
+    TILES_26=  0008     |     TILES_26=  0340     |     TILES_26=  0020 
+    TILES_26=  0004     |     TILES_27=  0008     |     TILES_27=  0360 
+    TILES_27=  0020     |     TILES_27=  0004     |     TILES_28=  0008 
+    TILES_28=  0380     |     TILES_28=  0020     |     TILES_28=  0004 
+    TILES_29=  0008     |     TILES_29=  03A0     |     TILES_29=  0020 
+    TILES_29=  0004     |     TILES_30=  0008     |     TILES_30=  03C0 
+    TILES_30=  0020     |     TILES_30=  0004     |     TILES_31=  0008 
+    TILES_31=  03E0     |     TILES_31=  0020     |     TILES_31=  0004 
+    TILES_32=  0008     |     TILES_32=  0400     |     TILES_32=  0020 
+    TILES_32=  0004     |     TILES_33=  0008     |     TILES_33=  0420 
+    TILES_33=  0020     |     TILES_33=  0004     |     TILES_34=  0008 
+    TILES_34=  0440     |     TILES_34=  0020     |     TILES_34=  0004 
+    TILES_PA=  0000     |     TILES_PA=  0000 
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE      size    0   flags    0
+

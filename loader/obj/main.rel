@@ -1,0 +1,20 @@
+XL2
+H 2 areas 7 global symbols
+M cpct_keyboard
+S cpct_setPalette_asm Ref0000
+S .__.ABS. Def0000
+S _g_pal Ref0000
+S cpct_setVideoMode_asm Ref0000
+S cpct_miniload_asm Ref0000
+S cpct_disableFirmware_asm Ref0000
+A _CODE size 28 flags 0 addr 0
+S _main Def0000
+A _DATA size 0 flags 0 addr 0
+T 00 00
+R 00 00 00 00
+T 00 00 CD 00 00 0E 00 CD 00 00 21 00 00 11 10 00
+R 00 00 00 00 02 03 05 00 02 08 03 00 02 0B 02 00
+T 0E 00 CD 00 00 DD 21 00 C0 11 00 40 CD 00 00 DD
+R 00 00 00 00 02 03 00 00 02 0D 04 00
+T 1C 00 21 94 06 11 19 69 CD 00 00 C3 92 4F
+R 00 00 00 00 02 09 04 00

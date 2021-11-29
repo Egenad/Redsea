@@ -1,0 +1,35 @@
+XL2
+H 1 areas 20 global symbols
+S _enemy2_sp_0 Ref0000
+S _enemy2_sp_1 Ref0000
+S _enemy2_sp_2 Ref0000
+S ent_new_type1 Ref0000
+S ent_new_type2 Ref0000
+S ent_new_type3 Ref0000
+S enemy_vector Ref0000
+S ent_draw Ref0000
+S enemy_window Ref0000
+S ent_start_level_1 Ref0000
+S ent_start_level_2 Ref0000
+S ent_start_level_3 Ref0000
+S ent_move Ref0000
+S ent_start_level_4 Ref0000
+S .__.ABS. Def0000
+S ent_updEnemy2 Ref0000
+S ent_start_level_5 Ref0000
+S ent_start_level_6 Ref0000
+S reset_enemies Ref0000
+S ent_update Ref0000
+S ent_clear Ref0000
+S _enemy12_sp_0 Ref0000
+S _enemy12_sp_1 Ref0000
+S _enemy12_sp_2 Ref0000
+S _enemy12_sp_3 Ref0000
+S _enemy12_sp_4 Ref0000
+S _enemy12_sp_5 Ref0000
+S _enemy12_sp_6 Ref0000
+S _enemy12_sp_7 Ref0000
+S _enemy12_sp_8 Ref0000
+S ent_doForAll Ref0000
+S shootEffect Ref0000
+A _CODE size 0 flags 0 addr 0

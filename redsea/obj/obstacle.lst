@@ -1,0 +1,429 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 1.
+Hexadecimal [16-Bits]
+
+
+
+                              1 ;;------------------------------------------------LICENSE NOTICE------------------------------------------------------------------------------
+                              2 ;;  This file is part of Amstrad CPC videogame "Redsea"
+                              3 ;;  Copyright (C) 2018 Gameroid / Angel Jesus Terol Martinez (@miya_nashi) / Raquel Gonzalez Roma (@kelara712) / Carla Macia Diez (@shiryuko)
+                              4 ;;  Copyright (C) 2015 ronaldo / Fremos / Cheesetea / ByteRealms (@FranGallegoBR)
+                              5 ;;
+                              6 ;;  This program is free software: you can redistribute it and/or modify
+                              7 ;;  it under the terms of the GNU Lesser General Public License as published by
+                              8 ;;  the Free Software Foundation, either version 3 of the License, or
+                              9 ;;  (at your option) any later version.
+                             10 ;;
+                             11 ;;  This program is distributed in the hope that it will be useful,
+                             12 ;;  but WITHOUT ANY WARRANTY; without even the implied warranty of
+                             13 ;;  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+                             14 ;;  GNU Lesser General Public License for more details.
+                             15 ;;
+                             16 ;;  You should have received a copy of the GNU Lesser General Public License
+                             17 ;;  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+                             18 ;;------------------------------------------------LICENSE NOTICE-------------------------------------------------------------------------
+                             19 
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+
+
+                             20 .include "obstacle.h.s"
+                              1 ;;------------------------------------------------LICENSE NOTICE------------------------------------------------------------------------------
+                              2 ;;  This file is part of Amstrad CPC videogame "Redsea"
+                              3 ;;  Copyright (C) 2018 Gameroid / Angel Jesus Terol Martinez (@miya_nashi) / Raquel Gonzalez Roma (@kelara712) / Carla Macia Diez (@shiryuko)
+                              4 ;;  Copyright (C) 2015 ronaldo / Fremos / Cheesetea / ByteRealms (@FranGallegoBR)
+                              5 ;;
+                              6 ;;  This program is free software: you can redistribute it and/or modify
+                              7 ;;  it under the terms of the GNU Lesser General Public License as published by
+                              8 ;;  the Free Software Foundation, either version 3 of the License, or
+                              9 ;;  (at your option) any later version.
+                             10 ;;
+                             11 ;;  This program is distributed in the hope that it will be useful,
+                             12 ;;  but WITHOUT ANY WARRANTY; without even the implied warranty of
+                             13 ;;  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+                             14 ;;  GNU Lesser General Public License for more details.
+                             15 ;;
+                             16 ;;  You should have received a copy of the GNU Lesser General Public License
+                             17 ;;  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+                             18 ;;------------------------------------------------LICENSE NOTICE-------------------------------------------------------------------------
+                             19 
+                             20 .globl ob_draw
+                             21 .globl ob_init
+                             22 .globl ob_damage
+                             23 .globl _obstacle_sp_0
+                             24 .globl _obstacle_sp_1
+                             25 .globl _mastil_sp
+                             26 .globl _camarote_sp
+                             27 .globl obstacle
+                             28 .globl obstacle2
+                             29 .globl mastil
+                             30 .globl camarote
+                             31 .globl ob_level_1
+                             32 .globl ob_level_3
+                             33 .globl ob_level_4
+                             34 .globl ob_level_5
+                             35 .globl ob_level_6
+                             36 .globl ob_draw_obstacles
+                             37 
+                             38 .macro DefineObstacle _name, _x, _y, _w, _h, _sprite, _life 
+                             39 _name: 
+                             40 	DefineDrawableEntity _name'_drawable, _x, _y, _w, _h, _sprite
+                             41    .db   _life
+                             42 _name'_size = . - _name
+                             43 .endm
+                             44 
+                     0006    45 o_size_dw = 6
+                             46 
+                     0000    47 o_de = 0
+                     0007    48 o_life = 1 + o_size_dw
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 3.
+Hexadecimal [16-Bits]
+
+
+
+                             21 .include "render.h.s"
+                              1 ;;------------------------------------------------LICENSE NOTICE------------------------------------------------------------------------------
+                              2 ;;  This file is part of Amstrad CPC videogame "Redsea"
+                              3 ;;  Copyright (C) 2018 Gameroid / Angel Jesus Terol Martinez (@miya_nashi) / Raquel Gonzalez Roma (@kelara712) / Carla Macia Diez (@shiryuko)
+                              4 ;;  Copyright (C) 2015 ronaldo / Fremos / Cheesetea / ByteRealms (@FranGallegoBR)
+                              5 ;;
+                              6 ;;  This program is free software: you can redistribute it and/or modify
+                              7 ;;  it under the terms of the GNU Lesser General Public License as published by
+                              8 ;;  the Free Software Foundation, either version 3 of the License, or
+                              9 ;;  (at your option) any later version.
+                             10 ;;
+                             11 ;;  This program is distributed in the hope that it will be useful,
+                             12 ;;  but WITHOUT ANY WARRANTY; without even the implied warranty of
+                             13 ;;  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+                             14 ;;  GNU Lesser General Public License for more details.
+                             15 ;;
+                             16 ;;  You should have received a copy of the GNU Lesser General Public License
+                             17 ;;  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+                             18 ;;------------------------------------------------LICENSE NOTICE-------------------------------------------------------------------------
+                             19 
+                             20 .globl render_draw
+                             21 .globl render_clear
+                             22 .globl ren_newScene
+                             23 .globl m_back_buffer
+                             24 .globl render_clear_asset
+                             25 .globl render_clear_asset_both
+                             26 
+                             27 .macro DefineDrawableEntity _name, _x, _y, _w, _h, _s
+                             28 _name:
+                             29 	.db _x, _y
+                             30 	.db _w, _h
+                             31 	.dw _s
+                             32 .endm
+                     0000    33 de_x = 0
+                     0001    34 de_y = 1
+                     0002    35 de_w = 2
+                     0003    36 de_h = 3
+                     0004    37 de_sp_l = 4
+                     0005    38 de_sp_h = 5
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 4.
+Hexadecimal [16-Bits]
+
+
+
+                             22 .include "main.h.s"
+                              1 ;;------------------------------------------------LICENSE NOTICE------------------------------------------------------------------------------
+                              2 ;;  This file is part of Amstrad CPC videogame "Redsea"
+                              3 ;;  Copyright (C) 2018 Gameroid / Angel Jesus Terol Martinez (@miya_nashi) / Raquel Gonzalez Roma (@kelara712) / Carla Macia Diez (@shiryuko)
+                              4 ;;  Copyright (C) 2015 ronaldo / Fremos / Cheesetea / ByteRealms (@FranGallegoBR)
+                              5 ;;
+                              6 ;;  This program is free software: you can redistribute it and/or modify
+                              7 ;;  it under the terms of the GNU Lesser General Public License as published by
+                              8 ;;  the Free Software Foundation, either version 3 of the License, or
+                              9 ;;  (at your option) any later version.
+                             10 ;;
+                             11 ;;  This program is distributed in the hope that it will be useful,
+                             12 ;;  but WITHOUT ANY WARRANTY; without even the implied warranty of
+                             13 ;;  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+                             14 ;;  GNU Lesser General Public License for more details.
+                             15 ;;
+                             16 ;;  You should have received a copy of the GNU Lesser General Public License
+                             17 ;;  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+                             18 ;;------------------------------------------------LICENSE NOTICE-------------------------------------------------------------------------
+                             19 
+                             20 .globl cpct_disableFirmware_asm
+                             21 .globl cpct_setVideoMode_asm
+                             22 .globl cpct_waitVSYNC_asm
+                             23 .globl cpct_drawSolidBox_asm
+                             24 .globl cpct_getScreenPtr_asm
+                             25 .globl cpct_scanKeyboard_asm
+                             26 .globl cpct_isKeyPressed_asm
+                             27 .globl cpct_setVideoMemoryPage_asm
+                             28 .globl cpct_memset_f64_asm
+                             29 .globl cpct_drawSprite_asm
+                             30 .globl cpct_setPalette_asm
+                             31 .globl _hero_pal
+                             32 .globl _enemy_sc_sp
+                             33 .globl cpct_zx7b_decrunch_s_asm
+                             34 .globl _level0_pack_end
+                             35 .globl cpct_etm_setDrawTilemap4x8_ag_asm
+                             36 .globl cpct_etm_drawTilemap4x8_ag_asm
+                             37 .globl _level0_W
+                             38 .globl _tile_palette
+                             39 .globl tilemap_ptr
+                             40 .globl _menu_pack_end
+                             41 .globl _menu2_pack_end
+                             42 .globl reset_game_win
+                             43 .globl reset_game
+                             44 .globl cpct_getRandom_mxor_u8_asm
+                             45 .globl cpct_akp_musicInit_asm
+                             46 .globl cpct_akp_musicPlay_asm
+                             47 .globl cpct_akp_stop_asm
+                             48 .globl cpct_setInterruptHandler_asm
+                             49 .globl _main_theme
+                             50 .globl _true_theme
+                             51 .globl _shootSFX
+                             52 .globl cpct_akp_SFXInit_asm
+                             53 .globl cpct_akp_SFXPlay_asm
+                             54 .globl cpct_akp_SFXStop_asm
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 5.
+Hexadecimal [16-Bits]
+
+
+
+                             55 .globl cpct_setPALColour_asm
+                             56 .globl DecompressTilemap
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 6.
+Hexadecimal [16-Bits]
+
+
+
+                             23 
+   0000                      24 DefineObstacle obstacle, #0x00, #0x00, #0x06, #0x0F, _obstacle_sp_0, #0x05
+   0000                       1 obstacle: 
+   0000                       2 	DefineDrawableEntity obstacle_drawable, #0x00, #0x00, #0x06, #0x0F, _obstacle_sp_0
+   0000                       1 obstacle_drawable:
+   0000 00 00                 2 	.db #0x00, #0x00
+   0002 06 0F                 3 	.db #0x06, #0x0F
+   0004 00 00                 4 	.dw _obstacle_sp_0
+   0006 05                    3    .db   #0x05
+                     0007     4 obstacle_size = . - obstacle
+   0007                      25 DefineObstacle obstacle2, #0x00, #0x00, #0x06, #0x0F, _obstacle_sp_0, #0x05
+   0007                       1 obstacle2: 
+   0007                       2 	DefineDrawableEntity obstacle2_drawable, #0x00, #0x00, #0x06, #0x0F, _obstacle_sp_0
+   0007                       1 obstacle2_drawable:
+   0007 00 00                 2 	.db #0x00, #0x00
+   0009 06 0F                 3 	.db #0x06, #0x0F
+   000B 00 00                 4 	.dw _obstacle_sp_0
+   000D 05                    3    .db   #0x05
+                     0007     4 obstacle2_size = . - obstacle2
+   000E                      26 DefineObstacle mastil, #0x0C, #0x18, #0x04, #0x32, _mastil_sp, #0xFF
+   000E                       1 mastil: 
+   000E                       2 	DefineDrawableEntity mastil_drawable, #0x0C, #0x18, #0x04, #0x32, _mastil_sp
+   000E                       1 mastil_drawable:
+   000E 0C 18                 2 	.db #0x0C, #0x18
+   0010 04 32                 3 	.db #0x04, #0x32
+   0012 00 00                 4 	.dw _mastil_sp
+   0014 FF                    3    .db   #0xFF
+                     0007     4 mastil_size = . - mastil
+   0015                      27 DefineObstacle camarote, #0x3C, #0x18, #0x14, #0x1A, _camarote_sp, #0xFF
+   0015                       1 camarote: 
+   0015                       2 	DefineDrawableEntity camarote_drawable, #0x3C, #0x18, #0x14, #0x1A, _camarote_sp
+   0015                       1 camarote_drawable:
+   0015 3C 18                 2 	.db #0x3C, #0x18
+   0017 14 1A                 3 	.db #0x14, #0x1A
+   0019 00 00                 4 	.dw _camarote_sp
+   001B FF                    3    .db   #0xFF
+                     0007     4 camarote_size = . - camarote
+                             28 
+   001C 00                   29 ob_created: .db #0
+   001D 00                   30 ob_active: 	.db #0
+                             31 
+   001E                      32 ob_init:
+   001E 21 00 00      [10]   33 	ld hl, #obstacle
+   0021 CD 2B 00      [17]   34 	call init_parameters
+   0024 21 07 00      [10]   35 	ld hl, #obstacle2
+   0027 CD 2B 00      [17]   36 	call init_parameters
+                             37 
+   002A C9            [10]   38 ret
+                             39 
+   002B                      40 init_parameters:
+   002B 23            [ 6]   41 	inc hl
+   002C 23            [ 6]   42 	inc hl 
+   002D 23            [ 6]   43 	inc hl
+   002E 23            [ 6]   44 	inc hl
+   002F 3E 00         [ 7]   45 	ld a, #_obstacle_sp_0
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 7.
+Hexadecimal [16-Bits]
+
+
+
+   0031 77            [ 7]   46 	ld (hl), a
+   0032 23            [ 6]   47 	inc hl
+   0033 23            [ 6]   48 	inc hl
+   0034 3E 05         [ 7]   49 	ld a, #0x05
+   0036 77            [ 7]   50 	ld (hl), a
+   0037 C9            [10]   51 ret
+                             52 
+   0038                      53 ob_damage:
+                             54 
+   0038 3E 18         [ 7]   55 	ld a, #0x18
+   003A 47            [ 4]   56 	ld b, a
+   003B 7E            [ 7]   57 	ld a, (hl) 	;;obstacle pos y
+   003C 90            [ 4]   58 	sub b
+   003D 28 10         [12]   59 	jr z, dont_damage
+                             60 
+   003F 23            [ 6]   61 	inc hl
+   0040 23            [ 6]   62 	inc hl
+   0041 23            [ 6]   63 	inc hl
+   0042 23            [ 6]   64 	inc hl 	;;obstacles's life
+   0043 23            [ 6]   65 	inc hl
+                             66 
+   0044 7E            [ 7]   67 	ld a, (hl)
+   0045 3D            [ 4]   68 	dec a
+   0046 20 06         [12]   69 	jr nz, barril_vivo
+                             70 
+                             71 	;;Change sprite
+   0048 2B            [ 6]   72 	dec hl
+   0049 2B            [ 6]   73 	dec hl
+   004A 36 00         [10]   74 	ld (hl), #_obstacle_sp_1
+   004C 23            [ 6]   75 	inc hl
+   004D 23            [ 6]   76 	inc hl
+   004E                      77 	barril_vivo:
+                             78 
+   004E 77            [ 7]   79 	ld (hl), a 
+                             80 
+   004F                      81 	dont_damage:
+                             82 
+   004F C9            [10]   83 ret
+                             84 
+                             85 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                             86 ;;;;;;;;;;;;ENT_DRAW ;;;;;;;;;;;;;
+                             87 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                             88 
+   0050                      89 ob_draw:
+   0050 C3 00 00      [10]   90 	jp render_draw
+                             91 
+                             92 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                             93 ;;;;;;;ob_draw_obstacles ;;;;;;;;;
+                             94 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                             95 
+   0053                      96 ob_draw_obstacles:
+                             97 	
+   0053 3A 1D 00      [13]   98 	ld a, (ob_active)
+   0056 3D            [ 4]   99 	dec a
+   0057 FA 70 00      [10]  100 	jp m, no_ob_active
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 8.
+Hexadecimal [16-Bits]
+
+
+
+                            101 
+   005A DD 21 00 00   [14]  102 		ld ix, #obstacle
+   005E CD 00 00      [17]  103 		call render_draw
+   0061 3A 1D 00      [13]  104 		ld a, (ob_active)
+   0064 3D            [ 4]  105 		dec a
+   0065 3D            [ 4]  106 		dec a
+   0066 FA 70 00      [10]  107 		jp m, no_ob_active
+                            108 
+   0069 DD 21 07 00   [14]  109 			ld ix, #obstacle2
+   006D C3 00 00      [10]  110 			jp render_draw
+                            111 
+   0070                     112 no_ob_active:
+                            113 
+                            114 
+   0070 C9            [10]  115 	ret
+                            116 
+                            117 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                            118 ;;;;;;;;;OB_LEVEL_X;;;;;;;;;;;;;;;
+                            119 ;; Change pos xy in every level ;;
+                            120 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                            121 
+   0071                     122 ob_level_1:
+                            123 
+                            124 	;Number of active obstacle 
+   0071 3E 00         [ 7]  125 	ld a, #0
+   0073 32 1D 00      [13]  126 	ld (ob_active), a
+                            127 
+                            128 	;Pos obstacle 1
+   0076 DD 21 00 00   [14]  129 	ld ix, #obstacle
+   007A DD 36 00 00   [19]  130 	ld de_x(ix), #0
+   007E DD 36 01 00   [19]  131 	ld de_y(ix), #0
+                            132 
+                            133 	;Pos obstacle 2
+   0082 DD 21 07 00   [14]  134 	ld ix, #obstacle2
+   0086 DD 36 00 00   [19]  135 	ld de_x(ix), #0
+   008A DD 36 01 00   [19]  136 	ld de_y(ix), #0
+                            137 
+   008E C9            [10]  138 ret
+                            139 
+   008F                     140 ob_level_3:
+                            141 
+                            142 	;Number of active obstacle 
+   008F 3E 01         [ 7]  143 	ld a, #1
+   0091 32 1D 00      [13]  144 	ld (ob_active), a
+                            145 	
+                            146 	;Pos obstacle 1
+   0094 DD 21 00 00   [14]  147 	ld ix, #obstacle
+   0098 DD 36 00 29   [19]  148 	ld de_x(ix), #0x29
+   009C DD 36 01 50   [19]  149 	ld de_y(ix), #0x50
+                            150 
+                            151 	;Pos obstacle 2
+   00A0 DD 21 07 00   [14]  152 	ld ix, #obstacle2
+   00A4 DD 36 00 00   [19]  153 	ld de_x(ix), #0
+   00A8 DD 36 01 00   [19]  154 	ld de_y(ix), #0
+                            155 
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 9.
+Hexadecimal [16-Bits]
+
+
+
+   00AC C9            [10]  156 ret
+                            157 
+   00AD                     158 ob_level_4:
+                            159 
+                            160 	;Number of active obstacle 
+   00AD 3E 01         [ 7]  161 	ld a, #1
+   00AF 32 1D 00      [13]  162 	ld (ob_active), a
+                            163 	
+                            164 	;Pos obstacle 1
+   00B2 DD 21 00 00   [14]  165 	ld ix, #obstacle
+   00B6 DD 36 00 1C   [19]  166 	ld de_x(ix), #0x1C
+   00BA DD 36 01 38   [19]  167 	ld de_y(ix), #0x38
+                            168 
+                            169 	;Pos obstacle 2
+   00BE DD 21 07 00   [14]  170 	ld ix, #obstacle2
+   00C2 DD 36 00 00   [19]  171 	ld de_x(ix), #0
+   00C6 DD 36 01 00   [19]  172 	ld de_y(ix), #0
+                            173 
+   00CA C9            [10]  174 ret
+                            175 
+   00CB                     176 ob_level_5:
+                            177 
+                            178 	;Number of active obstacle 
+   00CB 3E 01         [ 7]  179 	ld a, #1
+   00CD 32 1D 00      [13]  180 	ld (ob_active), a
+                            181 	
+                            182 	;Pos obstacle 1
+   00D0 DD 21 00 00   [14]  183 	ld ix, #obstacle
+   00D4 DD 36 00 20   [19]  184 	ld de_x(ix), #0x20
+   00D8 DD 36 01 23   [19]  185 	ld de_y(ix), #0x23
+                            186 
+                            187 	;Pos obstacle 2
+   00DC DD 21 07 00   [14]  188 	ld ix, #obstacle2
+   00E0 DD 36 00 00   [19]  189 	ld de_x(ix), #0
+   00E4 DD 36 01 00   [19]  190 	ld de_y(ix), #0
+                            191 
+   00E8 C9            [10]  192 ret
+                            193 
+   00E9                     194 ob_level_6:
+                            195 
+                            196 	;Number of active obstacle 
+   00E9 3E 02         [ 7]  197 	ld a, #2
+   00EB 32 1D 00      [13]  198 	ld (ob_active), a
+                            199 	
+                            200 	;Pos obstacle 1
+   00EE DD 21 00 00   [14]  201 	ld ix, #obstacle
+   00F2 DD 36 00 10   [19]  202 	ld de_x(ix), #0x10
+   00F6 DD 36 01 50   [19]  203 	ld de_y(ix), #0x50
+                            204 
+                            205 	;Pos obstacle 2
+   00FA DD 21 07 00   [14]  206 	ld ix, #obstacle2
+   00FE DD 36 00 30   [19]  207 	ld de_x(ix), #0x30
+   0102 DD 36 01 23   [19]  208 	ld de_y(ix), #0x23
+                            209 
+   0106 C9            [10]  210 ret

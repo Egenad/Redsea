@@ -1,0 +1,42 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.=  2710 L   |     .__.ABS.=  0000 G   |     .__.CPU.=  0000 L
+    .__.H$L.=  0000 L   |     Decompre   **** GX  |     _camarot   **** GX
+    _enemy_s   **** GX  |     _hero_pa   **** GX  |     _level0_   **** GX
+    _level0_   **** GX  |     _main_th   **** GX  |     _mastil_   **** GX
+    _menu2_p   **** GX  |     _menu_pa   **** GX  |     _obstacl   **** GX
+    _obstacl   **** GX  |     _shootSF   **** GX  |     _tile_pa   **** GX
+    _true_th   **** GX  |   0 barril_v   004E R   |   0 camarote   0015 GR
+  0 camarote   0015 R   |     camarote=  0007     |     cpct_akp   **** GX
+    cpct_akp   **** GX  |     cpct_akp   **** GX  |     cpct_akp   **** GX
+    cpct_akp   **** GX  |     cpct_akp   **** GX  |     cpct_dis   **** GX
+    cpct_dra   **** GX  |     cpct_dra   **** GX  |     cpct_etm   **** GX
+    cpct_etm   **** GX  |     cpct_get   **** GX  |     cpct_get   **** GX
+    cpct_isK   **** GX  |     cpct_mem   **** GX  |     cpct_sca   **** GX
+    cpct_set   **** GX  |     cpct_set   **** GX  |     cpct_set   **** GX
+    cpct_set   **** GX  |     cpct_set   **** GX  |     cpct_wai   **** GX
+    cpct_zx7   **** GX  |     de_h    =  0003     |     de_sp_h =  0005 
+    de_sp_l =  0004     |     de_w    =  0002     |     de_x    =  0000 
+    de_y    =  0001     |   0 dont_dam   004F R   |   0 init_par   002B R
+    m_back_b   **** GX  |   0 mastil     000E GR  |   0 mastil_d   000E R
+    mastil_s=  0007     |   0 no_ob_ac   0070 R   |     o_de    =  0000 
+    o_life  =  0007     |     o_size_d=  0006     |   0 ob_activ   001D R
+  0 ob_creat   001C R   |   0 ob_damag   0038 GR  |   0 ob_draw    0050 GR
+  0 ob_draw_   0053 GR  |   0 ob_init    001E GR  |   0 ob_level   0071 GR
+  0 ob_level   008F GR  |   0 ob_level   00AD GR  |   0 ob_level   00CB GR
+  0 ob_level   00E9 GR  |   0 obstacle   0000 GR  |   0 obstacle   0007 GR
+  0 obstacle   0007 R   |     obstacle=  0007     |   0 obstacle   0000 R
+    obstacle=  0007     |     ren_newS   **** GX  |     render_c   **** GX
+    render_c   **** GX  |     render_c   **** GX  |     render_d   **** GX
+    reset_ga   **** GX  |     reset_ga   **** GX  |     tilemap_   **** GX
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE      size  107   flags    0
+

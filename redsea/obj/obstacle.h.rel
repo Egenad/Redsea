@@ -1,0 +1,21 @@
+XL2
+H 1 areas 12 global symbols
+S mastil Ref0000
+S camarote Ref0000
+S obstacle Ref0000
+S ob_damage Ref0000
+S ob_level_1 Ref0000
+S ob_level_3 Ref0000
+S ob_level_4 Ref0000
+S ob_level_5 Ref0000
+S ob_level_6 Ref0000
+S ob_draw Ref0000
+S .__.ABS. Def0000
+S ob_init Ref0000
+S _mastil_sp Ref0000
+S _camarote_sp Ref0000
+S ob_draw_obstacles Ref0000
+S _obstacle_sp_0 Ref0000
+S _obstacle_sp_1 Ref0000
+S obstacle2 Ref0000
+A _CODE size 0 flags 0 addr 0

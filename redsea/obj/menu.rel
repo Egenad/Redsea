@@ -1,0 +1,109 @@
+XL2
+H 1 areas 35 global symbols
+M cpct_keyboard
+S cpct_setInterruptHandler_asm Ref0000
+S cpct_setPalette_asm Ref0000
+S cpct_isKeyPressed_asm Ref0000
+S cpct_setPALColour_asm Ref0000
+S init_controls Ref0000
+S cpct_akp_SFXInit_asm Ref0000
+S reset_game_win Ref0000
+S cpct_akp_stop_asm Ref0000
+S cpct_akp_SFXPlay_asm Ref0000
+S render_draw Ref0000
+S cpct_drawSprite_asm Ref0000
+S _true_theme Ref0000
+S _title_sp_0 Ref0000
+S _title_sp_1 Ref0000
+S cpct_etm_drawTilemap4x8_ag_asm Ref0000
+S _title_sp_2 Ref0000
+S _controls_sp Ref0000
+S _menu2_pack_end Ref0000
+S cpct_akp_SFXStop_asm Ref0000
+S _tile_palette Ref0000
+S ren_newScene Ref0000
+S reset_game Ref0000
+S _level0_W Ref0000
+S .__.ABS. Def0000
+S DecompressTilemap Ref0000
+S tilemap_ptr Ref0000
+S cpct_setVideoMemoryPage_asm Ref0000
+S cpct_memset_f64_asm Ref0000
+S render_clear_asset Ref0000
+S render_clear Ref0000
+S _menu_pack_end Ref0000
+S _hero_pal Ref0000
+S _gameover_text_sp_1 Ref0000
+S render_clear_asset_both Ref0000
+S cpct_zx7b_decrunch_s_asm Ref0000
+S cpct_waitVSYNC_asm Ref0000
+S cpct_setVideoMode_asm Ref0000
+S _enemy_sc_sp Ref0000
+S m_back_buffer Ref0000
+S _main_theme Ref0000
+S cpct_akp_musicInit_asm Ref0000
+S cpct_disableFirmware_asm Ref0000
+S cpct_akp_musicPlay_asm Ref0000
+S cpct_getRandom_mxor_u8_asm Ref0000
+S _level0_pack_end Ref0000
+S cpct_drawSolidBox_asm Ref0000
+S _shootSFX Ref0000
+S cpct_etm_setDrawTilemap4x8_ag_asm Ref0000
+S cpct_scanKeyboard_asm Ref0000
+S cpct_getScreenPtr_asm Ref0000
+A _CODE size AF flags 0 addr 0
+S init_menu Def004E
+S drawTileMap Def0043
+S changeLocation Def00A8
+T 00 00 C0
+R 00 00 00 00
+T 01 00
+R 00 00 00 00
+T 01 00 57 1E 00 0E 11 06 40 CD 00 00 EB 21 00 00
+R 00 00 00 00 02 0A 31 00 02 0E 0C 00
+T 0F 00 06 0C 0E 2E CD 00 00 C9
+R 00 00 00 00 02 07 0A 00
+T 17 00
+R 00 00 00 00
+T 17 00 57 1E 00 0E 0D 06 65 CD 00 00 EB 21 00 00
+R 00 00 00 00 02 0A 31 00 02 0E 0D 00
+T 25 00 06 0C 0E 2E CD 00 00 C9
+R 00 00 00 00 02 07 0A 00
+T 2D 00
+R 00 00 00 00
+T 2D 00 57 1E 00 0E 0D 06 75 CD 00 00 EB 21 00 00
+R 00 00 00 00 02 0A 31 00 02 0E 0F 00
+T 3B 00 06 09 0E 2E CD 00 00 C9
+R 00 00 00 00 02 07 0A 00
+T 43 00
+R 00 00 00 00
+T 43 00 67 3E 00 6F 11 00 00 CD 00 00 C9
+R 00 00 00 00 02 07 19 00 02 0A 0E 00
+T 4E 00
+R 00 00 00 00
+T 4E 00
+R 00 00 00 00
+T 4E 00 3E C0 CD 43 00 3E 80 CD 43 00 3E C0 CD
+R 00 00 00 00 00 05 00 00 00 0A 00 00
+T 5B 00 01 00 3E 80 CD 01 00 3E C0 CD 17 00 3E 80
+R 00 00 00 00 00 02 00 00 00 07 00 00 00 0C 00 00
+T 69 00 CD 17 00 3E C0 CD 2D 00 3E 80 CD 2D 00
+R 00 00 00 00 00 03 00 00 00 08 00 00 00 0D 00 00
+T 76 00
+R 00 00 00 00
+T 76 00 CD 00 00 CD 00 00 CD A8 00 CD
+R 00 00 00 00 02 03 23 00 02 06 14 00 00 09 00 00
+T 80 00 00 00 21 08 02 CD 00 00 28 12 21 00 00 CD
+R 00 00 00 00 02 02 30 00 02 08 02 00 02 0D 1E 00
+T 8E 00 00 00 CD 00 00 21 00 00 CD
+R 00 00 00 00 02 02 18 00 02 05 04 00 02 08 11 00
+T 97 00 00 00 C3 4E 00
+R 00 00 00 00 02 02 18 00 00 05 00 00
+T 9C 00
+R 00 00 00 00
+T 9C 00 CD 00 00 21 08 01 CD 00 00 28 CF C9
+R 00 00 00 00 02 03 30 00 02 09 02 00
+T A8 00
+R 00 00 00 00
+T A8 00 3A 00 00 32 00 00 C9
+R 00 00 00 00 02 03 26 00 00 06 00 00

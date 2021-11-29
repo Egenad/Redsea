@@ -1,0 +1,422 @@
+ASxxxx Linker V03.00 + NoICE + sdld,  page 1.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000000  .__.ABS.                           cpct_random
+     00000000  l__CABS                         
+     00000000  l__DABS                         
+     00000000  l__DATA                         
+     00000000  l__GSFINAL                      
+     00000000  l__GSINIT                       
+     00000000  l__HOME                         
+     00000000  l__INITIALIZED                  
+     00000000  l__INITIALIZER                  
+     00000000  l___main_theme                  
+     00000000  l___shootSFX                    
+     00000000  l___true_theme                  
+     00000000  s__CABS                         
+     00000000  s__DABS                         
+     00000000  s___main_theme                  
+     00000000  s___main_theme0                 
+     00000000  s___shootSFX                    
+     00000000  s___shootSFX0                   
+     00000000  s___true_theme                  
+     00000000  s___true_theme0                 
+     00000014  _level0_W                          
+     00000040  tilemap_ptr                        cpct_keyboard
+     00000065  l___shootSFX0                   
+     00000210  l___true_theme0                 
+     00000283  l___main_theme0                 
+     00000694  s__CODE                         
+     00005BC1  l__CODE                         
+     00006255  s__DATA                         
+     00006255  s__GSFINAL                      
+     00006255  s__GSINIT                       
+     00006255  s__HOME                         
+     00006255  s__INITIALIZED                  
+     00006255  s__INITIALIZER                  
+ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00000694    00005BC1 =       23489. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000694  _tile_palette                      tile_palette
+     000006A4  _nextlevel_text_sp_0               nextlevel_text
+     0000083C  _nextlevel_text_sp_1               nextlevel_text
+     000009D4  _gameover_text_sp_0                gameover_text
+     00000DE4  _gameover_text_sp_1                gameover_text
+     00000FEC  _enemy_sc_sp                       Enemy
+     000010DE  _thanks_sp_0                       thanks
+     00001AF2  _thanks_sp_1                       thanks
+     00001BC9  _lifes_0                           Vidas
+     00001CBB  _lifes_1                           Vidas
+     00001DAD  _controls_sp                       controls
+     00002635  _numbers_00                        numbers
+     0000264A  _numbers_01                        numbers
+     0000265F  _numbers_02                        numbers
+     00002674  _numbers_03                        numbers
+     00002689  _numbers_04                        numbers
+     0000269E  _numbers_05                        numbers
+     000026B3  _numbers_06                        numbers
+     000026C8  _numbers_07                        numbers
+     000026DD  _numbers_08                        numbers
+     000026F2  _numbers_09                        numbers
+     00002707  _title_sp_0                        title
+     0000292F  _title_sp_1                        title
+     00002B57  _title_sp_2                        title
+     00002CF5  _enemy3_sp_0                       Pirate_Far
+     00002D43  _enemy3_sp_1                       Pirate_Far
+     00002D91  _enemy3_sp_2                       Pirate_Far
+     00002DDF  _enemy3_sp_3                       Pirate_Far
+     00002E2D  _enemy3_sp_4                       Pirate_Far
+     00002E7B  _enemy3_sp_5                       Pirate_Far
+     00002EC9  _enemy3_sp_6                       Pirate_Far
+     00002F17  _enemy3_sp_7                       Pirate_Far
+     00002F65  _enemy3_sp_8                       Pirate_Far
+     00002FB3  _enemy12_sp_0                      Pirate_Close_3
+     00003053  _enemy12_sp_1                      Pirate_Close_3
+     000030F3  _enemy12_sp_2                      Pirate_Close_3
+     00003193  _enemy12_sp_3                      Pirate_Close_3
+     00003233  _enemy12_sp_4                      Pirate_Close_3
+     000032D3  _enemy12_sp_5                      Pirate_Close_3
+     00003373  _enemy12_sp_6                      Pirate_Close_3
+     00003413  _enemy12_sp_7                      Pirate_Close_3
+     000034B3  _enemy12_sp_8                      Pirate_Close_3
+     00003553  _obstacle_sp_0                     obstacle
+     000035AD  _obstacle_sp_1                     obstacle
+     00003607  _assets_sp_0                       assets
+     00003627  _assets_sp_1                       assets
+     00003647  _enemy2_sp_0                       enemy2
+     0000368F  _enemy2_sp_1                       enemy2
+     000036D7  _enemy2_sp_2                       enemy2
+     0000371F  _camarote_sp                       camarote
+ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00000694    00005BC1 =       23489. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00003927  _mastil_sp                         mastil
+     000039EF  _hero_pal                          pirate_hero
+     000039FF  _hero_sp_0                         pirate_hero
+     00003A9F  _hero_sp_1                         pirate_hero
+     00003B3F  _hero_sp_2                         pirate_hero
+     00003BDF  _hero_sp_3                         pirate_hero
+     00003C7F  _hero_sp_4                         pirate_hero
+     00003D1F  _hero_sp_5                         pirate_hero
+     00003DBF  _hero_sp_6                         pirate_hero
+     00003E5F  _hero_sp_7                         pirate_hero
+     00003EFF  _hero_sp_8                         pirate_hero
+     00003F9F  _menu2_pack                        
+     00004140  _menu2_pack_end                    
+     00004141  _menu_pack                         
+     000042C9  _menu_pack_end                     
+     000042CA  _level0_pack                       
+     0000449E  _level0_pack_end                   
+     0000449F  bullet_vector                      
+     000044EA  bul_new                            
+     00004555  bul_clear                          
+     00004558  bul_update                         
+     0000455F  bul_draw                           
+     0000459B  bul_move                           
+     000045C0  bul_doForAll                       
+     000045DF  reset_bullets                      
+     000045F6  init_win                           cpct_keyboard
+     0000464C  init_controls                      cpct_keyboard
+     000046A3  m_back_buffer                      cpct_keyboard
+     000046A4  ren_newScene                       cpct_keyboard
+     000046BF  render_draw                        cpct_keyboard
+     000046F1  render_clear                       cpct_keyboard
+     00004706  render_clear_asset                 cpct_keyboard
+     00004737  render_clear_asset_both            cpct_keyboard
+     00004742  init_gameOver                      cpct_keyboard
+     00004798  obstacle                           
+     0000479F  obstacle2                          
+     000047A6  mastil                             
+     000047AD  camarote                           
+     000047B6  ob_init                            
+     000047D0  ob_damage                          
+     000047E8  ob_draw                            
+     000047EB  ob_draw_obstacles                  
+     00004809  ob_level_1                         
+     00004827  ob_level_3                         
+     00004845  ob_level_4                         
+     00004863  ob_level_5                         
+     00004881  ob_level_6                         
+     000048E2  drawTileMap                        cpct_keyboard
+     000048ED  init_menu                          cpct_keyboard
+     00004947  changeLocation                     cpct_keyboard
+     0000494E  enemy_vector                       cpct_keyboard
+ASxxxx Linker V03.00 + NoICE + sdld,  page 4.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00000694    00005BC1 =       23489. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00004A89  enemy_window                       cpct_keyboard
+     00004AA4  shootEffect                        cpct_keyboard
+     00004AC0  ent_new_type1                      cpct_keyboard
+     00004AE1  ent_new_type2                      cpct_keyboard
+     00004B12  ent_new_type3                      cpct_keyboard
+     00004B9C  ent_draw                           cpct_keyboard
+     00004B9F  ent_update                         cpct_keyboard
+     00004BA6  ent_clear                          cpct_keyboard
+     00004BBC  ent_updEnemy2                      cpct_keyboard
+     00004D79  ent_move                           cpct_keyboard
+     00004E02  ent_doForAll                       cpct_keyboard
+     00004EA1  reset_enemies                      cpct_keyboard
+     00004ED7  ent_start_level_1                  cpct_keyboard
+     00004F06  ent_start_level_2                  cpct_keyboard
+     00004F1B  ent_start_level_3                  cpct_keyboard
+     00004F2B  ent_start_level_4                  cpct_keyboard
+     00004F3B  ent_start_level_5                  cpct_keyboard
+     00004F50  ent_start_level_6                  cpct_keyboard
+     00004F68  isr                                cpct_keyboard
+     00004F8B  DecompressTilemap                  cpct_keyboard
+     00004F92  _main                              cpct_keyboard
+     000050AF  reset_game                         cpct_keyboard
+     000050D0  reset_game_win                     cpct_keyboard
+     000051BA  init_nextLevel                     cpct_keyboard
+     0000521A  level                              cpct_keyboard
+     0000521D  hero_data                          cpct_keyboard
+     00005227  shoot_data                         cpct_keyboard
+     00005231  pl_draw                            cpct_keyboard
+     00005234  pl_update                          cpct_keyboard
+     0000523B  pl_clear                           cpct_keyboard
+     0000523F  pl_clear_mira                      cpct_keyboard
+     00005243  pl_move                            cpct_keyboard
+     00005256  pl_moveKeyboard                    cpct_keyboard
+     0000535B  pl_moveAsShooter                   cpct_keyboard
+     000053CE  get_Enemy                          cpct_keyboard
+     000053F5  draw_Score                         cpct_keyboard
+     000054AD  draw_Lifes                         cpct_keyboard
+     00005585  reduce_life                        cpct_keyboard
+     000055A2  reset_player                       cpct_keyboard
+     00005675  _cpct_setInterruptHandler          cpct_firmware
+     00005675  cpct_setInterruptHandler_asm       cpct_firmware
+     00005686  cpct_safeInterruptHandlerHook      cpct_firmware
+     0000569D  _cpct_isKeyPressed                 cpct_keyboard
+     0000569D  cpct_isKeyPressed_asm              cpct_keyboard
+     000056A9  cpct_setPalette_asm                cpct_video
+     000056BC  cpct_setPALColour_asm              cpct_video
+     000056C6  _cpct_akp_digidrumStatus           cpct_audio
+     000056C7  _cpct_akp_songLoopTimes            cpct_audio
+     000056C8  _cpct_akp_musicPlay                cpct_audio
+     000056C8  cpct_akp_musicPlay_asm             cpct_audio
+     00005DCB  _cpct_akp_musicInit                cpct_audio
+ASxxxx Linker V03.00 + NoICE + sdld,  page 5.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00000694    00005BC1 =       23489. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00005DD2  cpct_akp_musicInit_asm             cpct_audio
+     00005E2B  _cpct_akp_stop                     cpct_audio
+     00005E2B  cpct_akp_stop_asm                  cpct_audio
+     00005E3E  _cpct_akp_SFXGetInstrument         cpct_audio
+     00005E43  cpct_akp_SFXGetInstrument_asm      cpct_audio
+     00005E57  _cpct_akp_SFXInit                  cpct_audio
+     00005E5E  cpct_akp_SFXInit_asm               cpct_audio
+     00005E65  _cpct_akp_SFXStopAll               cpct_audio
+     00005E65  cpct_akp_SFXStopAll_asm            cpct_audio
+     00005E72  _cpct_akp_SFXPlay                  cpct_audio
+     00005E84  cpct_akp_SFXPlay_asm               cpct_audio
+     00005ED1  _cpct_akp_SFXStop                  cpct_audio
+     00005ED6  cpct_akp_SFXStop_asm               cpct_audio
+     00005EEF  cpct_drawSprite_asm                cpct_sprites
+     00005F8F  cpct_etm_drawTilemap4x8_ag_asm     cpct_easytilemaps
+     00005F91  cpct_etm_dtm4x8_ag_asm_widthHeig   cpct_easytilemaps
+     00005FA7  cpct_etm_dtm4x8_ag_asm_tilesetPt   cpct_easytilemaps
+     00006012  cpct_etm_dtm4x8_ag_asm_restoreI    cpct_easytilemaps
+     00006018  cpct_etm_dtm4x8_ag_asm_increment   cpct_easytilemaps
+     0000601D  cpct_etm_dtm4x8_ag_asm_restoreWi   cpct_easytilemaps
+     00006020  cpct_etm_dtm4x8_ag_asm_updateWid   cpct_easytilemaps
+     00006028  _cpct_keyboardStatusBuffer         cpct_keyboard
+     00006032  _cpct_setVideoMemoryPage           cpct_video
+     00006032  cpct_setVideoMemoryPage_asm        cpct_video
+     0000603B  cpct_memset_f64_asm                cpct_memutils
+     0000607E  cpct_setVideoMode_asm              cpct_video
+     0000608B  _cpct_waitVSYNC                    cpct_video
+     0000608B  cpct_waitVSYNC_asm                 cpct_video
+     00006093  cpct_zx7b_decrunch_s_asm           cpct_compression
+     000060D3  _cpct_disableFirmware              cpct_firmware
+     000060D3  _cpct_removeInterruptHandler       cpct_firmware
+     000060D3  cpct_disableFirmware_asm           cpct_firmware
+     000060D3  cpct_removeInterruptHandler_asm    cpct_firmware
+     000060E3  cpct_drawSolidBox_asm              cpct_sprites
+     0000618F  _cpct_getRandom_mxor_u8            cpct_random
+     0000618F  cpct_getRandom_mxor_u8_asm         cpct_random
+     00006190  cpct_randomIdx_mxor_u8             cpct_random
+     000061B4  _cpct_mode_rom_status              cpct_firmware
+     000061B5  cpct_getScreenPtr_asm              cpct_video
+     000061D1  _cpct_scanKeyboard                 cpct_keyboard
+     000061D1  cpct_scanKeyboard_asm              cpct_keyboard
+     00006202  cpct_etm_setDrawTilemap4x8_ag_as   cpct_easytilemaps
+     0000622E  _cpct_mxor32_seed                  cpct_random
+     00006232  _cpct_nextRandom_mxor_u32          cpct_random
+     00006232  cpct_nextRandom_mxor_u32_asm       cpct_random
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 6.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+__shootSFX0                         00000000    00000065 =         101. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00006F48  _shootSFX                          
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 7.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+__true_theme0                       00000000    00000210 =         528. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00006A1F  _true_theme                        
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 8.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+__main_theme0                       00000000    00000283 =         643. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000063DB  _main_theme                        
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 9.
+
+Files Linked                              [ module(s) ]
+
+obj/tiles/tile_palette.rel                [ tile_palette ]
+obj/sprites/nextlevel_text.rel            [ nextlevel_text ]
+obj/sprites/gameover_text.rel             [ gameover_text ]
+obj/sprites/Enemy.rel                     [ Enemy ]
+obj/sprites/thanks.rel                    [ thanks ]
+obj/sprites/Vidas.rel                     [ Vidas ]
+obj/sprites/controls.rel                  [ controls ]
+obj/sprites/numbers.rel                   [ numbers ]
+obj/sprites/title.rel                     [ title ]
+obj/sprites/Pirate_Far.rel                [ Pirate_Far ]
+obj/sprites/Pirate_Close_3.rel            [ Pirate_Close_3 ]
+obj/sprites/obstacle.rel                  [ obstacle ]
+obj/sprites/assets.rel                    [ assets ]
+obj/sprites/enemy2.rel                    [ enemy2 ]
+obj/sprites/camarote.rel                  [ camarote ]
+obj/sprites/mastil.rel                    [ mastil ]
+obj/sprites/pirate_hero.rel               [ pirate_hero ]
+obj/menu2_pack.rel                        [  ]
+obj/menu_pack.rel                         [  ]
+obj/level0_pack.rel                       [  ]
+music/shoot.rel                           [  ]
+music/true_theme.rel                      [  ]
+music/maintheme.rel                       [  ]
+obj/tiles/menu2.h.rel                     [  ]
+obj/tiles/menu.h.rel                      [  ]
+obj/tiles/level0.h.rel                    [  ]
+obj/tiles/Tileset.h.rel                   [  ]
+obj/bullet.rel                            [  ]
+obj/win.rel                               [ cpct_keyboard ]
+obj/controls.rel                          [ cpct_keyboard ]
+obj/player.h.rel                          [  ]
+obj/render.rel                            [ cpct_keyboard ]
+obj/gameover.rel                          [ cpct_keyboard ]
+obj/gameover.h.rel                        [  ]
+obj/menu2_pack.h.rel                      [  ]
+obj/obstacle.rel                          [  ]
+obj/menu.rel                              [ cpct_keyboard ]
+obj/enemy.rel                             [ cpct_keyboard ]
+obj/main.rel                              [ cpct_keyboard ]
+obj/obstacle.h.rel                        [  ]
+obj/enemy.h.rel                           [  ]
+obj/menu.h.rel                            [  ]
+obj/nextlevel.h.rel                       [  ]
+obj/main.h.rel                            [  ]
+obj/bullet.h.rel                          [  ]
+obj/nextlevel.rel                         [ cpct_keyboard ]
+obj/win.h.rel                             [  ]
+obj/player.rel                            [ cpct_keyboard ]
+obj/render.h.rel                          [  ]
+obj/level0_pack.h.rel                     [  ]
+obj/menu_pack.h.rel                       [  ]
+obj/controls.h.rel                        [  ]
+
+
+Libraries Linked                          [ object file ]
+
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_setInterruptHandler.rel ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_isKeyPressed.rel ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_setPalette_asmbindings.rel ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_setPALColour_asmbindings.re ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ arkostracker.rel ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_drawSprite_asmbindings.rel ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_etm_drawTilemap4x8_ag_asmbi ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ keyboard.rel ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_setVideoMemoryPage.rel ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_memset_f64_asmbinding.rel ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_setVideoMode_asmbindings.re ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_waitVSYNC.rel ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_zx7b_decrunch_s_asmbindings ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_removeInterruptHandler.rel ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_drawSolidBox_asmbindings.re ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_getRandom_mxor_u8.rel ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpc_mode_rom_status.rel ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_getScreenPtr_asmbindings.re ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_scanKeyboard.rel ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_etm_setDrawTilemap4x8_ag_as ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_mxor32_seed.rel ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_nextRandom_mxor_u32.rel ]
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 10.
+
+User Base Address Definitions
+
+_CODE = 0x0694
+_DATA = 0x0000
+
+

@@ -1,0 +1,79 @@
+XL2
+H 1 areas 35 global symbols
+M cpct_keyboard
+S cpct_setInterruptHandler_asm Ref0000
+S cpct_setPalette_asm Ref0000
+S cpct_isKeyPressed_asm Ref0000
+S cpct_setPALColour_asm Ref0000
+S init_menu Ref0000
+S cpct_akp_SFXInit_asm Ref0000
+S reset_game_win Ref0000
+S cpct_akp_stop_asm Ref0000
+S cpct_akp_SFXPlay_asm Ref0000
+S render_draw Ref0000
+S cpct_drawSprite_asm Ref0000
+S _true_theme Ref0000
+S _title_sp_0 Ref0000
+S _title_sp_1 Ref0000
+S cpct_etm_drawTilemap4x8_ag_asm Ref0000
+S _title_sp_2 Ref0000
+S _controls_sp Ref0000
+S drawTileMap Ref0000
+S _menu2_pack_end Ref0000
+S cpct_akp_SFXStop_asm Ref0000
+S _tile_palette Ref0000
+S ren_newScene Ref0000
+S reset_game Ref0000
+S _level0_W Ref0000
+S .__.ABS. Def0000
+S changeLocation Ref0000
+S DecompressTilemap Ref0000
+S tilemap_ptr Ref0000
+S cpct_setVideoMemoryPage_asm Ref0000
+S cpct_memset_f64_asm Ref0000
+S render_clear_asset Ref0000
+S render_clear Ref0000
+S _menu_pack_end Ref0000
+S _hero_pal Ref0000
+S _gameover_text_sp_1 Ref0000
+S render_clear_asset_both Ref0000
+S cpct_zx7b_decrunch_s_asm Ref0000
+S cpct_waitVSYNC_asm Ref0000
+S cpct_setVideoMode_asm Ref0000
+S _enemy_sc_sp Ref0000
+S m_back_buffer Ref0000
+S _main_theme Ref0000
+S cpct_akp_musicInit_asm Ref0000
+S cpct_disableFirmware_asm Ref0000
+S cpct_akp_musicPlay_asm Ref0000
+S cpct_getRandom_mxor_u8_asm Ref0000
+S _level0_pack_end Ref0000
+S cpct_drawSolidBox_asm Ref0000
+S _shootSFX Ref0000
+S cpct_etm_setDrawTilemap4x8_ag_asm Ref0000
+S cpct_scanKeyboard_asm Ref0000
+S cpct_getScreenPtr_asm Ref0000
+A _CODE size 56 flags 0 addr 0
+S init_controls Def0000
+T 00 00
+R 00 00 00 00
+T 00 00 3E C0 CD 00 00 3E 80 CD 00 00 3E C0 CD
+R 00 00 00 00 02 05 11 00 02 0A 11 00
+T 0D 00 29 00 3E 80 CD 29 00
+R 00 00 00 00 00 02 00 00 00 07 00 00
+T 14 00
+R 00 00 00 00
+T 14 00 CD 00 00 CD 00 00 CD 00 00 CD
+R 00 00 00 00 02 03 25 00 02 06 15 00 02 09 19 00
+T 1E 00 00 00 21 05 80 CD 00 00 28 EC C9
+R 00 00 00 00 02 02 32 00 02 08 02 00
+T 29 00
+R 00 00 00 00
+T 29 00 F5 57 1E 00 0E 14 06 30 CD 00 00 EB 21
+R 00 00 00 00 02 0B 33 00
+T 36 00 00 00 06 38 0E 27 CD 00 00 F1 57 1E 00 0E
+R 00 00 00 00 02 02 10 00 02 09 0A 00
+T 44 00 14 06 80 CD 00 00 EB 21 00 00 06 0D 0E 28
+R 00 00 00 00 02 06 33 00 02 0A 22 00
+T 52 00 CD 00 00 C9
+R 00 00 00 00 02 03 0A 00

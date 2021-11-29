@@ -1,0 +1,79 @@
+ASxxxx Linker V03.00 + NoICE + sdld,  page 1.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000000  .__.ABS.                           cpct_firmware
+     00000000  l__CABS                         
+     00000000  l__DABS                         
+     00000000  l__DATA                         
+     00000000  l__GSFINAL                      
+     00000000  l__GSINIT                       
+     00000000  l__HOME                         
+     00000000  l__INITIALIZED                  
+     00000000  l__INITIALIZER                  
+     00000000  s__CABS                         
+     00000000  s__DABS                         
+     00000040  s__CODE                         
+     000000DF  l__CODE                         
+     0000011F  s__DATA                         
+     0000011F  s__GSFINAL                      
+     0000011F  s__GSINIT                       
+     0000011F  s__HOME                         
+     0000011F  s__INITIALIZED                  
+     0000011F  s__INITIALIZER                  
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00000040    000000DF =         223. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000040  _g_pal                             g_pal
+     00000050  _main                              cpct_keyboard
+     00000078  cpct_setPalette_asm                cpct_video
+     0000008B  cpct_setVideoMode_asm              cpct_video
+     00000098  cpct_miniload_asm                  cpct_loaders
+     0000010E  _cpct_disableFirmware              cpct_firmware
+     0000010E  _cpct_removeInterruptHandler       cpct_firmware
+     0000010E  cpct_disableFirmware_asm           cpct_firmware
+     0000010E  cpct_removeInterruptHandler_asm    cpct_firmware
+     0000011E  _cpct_mode_rom_status              cpct_firmware
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
+
+Files Linked                              [ module(s) ]
+
+obj/g_pal.rel                             [ g_pal ]
+obj/loadingcdt.h.rel                      [  ]
+obj/main.rel                              [ cpct_keyboard ]
+
+
+Libraries Linked                          [ object file ]
+
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_setPalette_asmbindings.rel ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_setVideoMode_asmbindings.re ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_miniload_asmbindings.rel ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_removeInterruptHandler.rel ]
+/home/miyas/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpc_mode_rom_status.rel ]
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 4.
+
+User Base Address Definitions
+
+_CODE = 0x0040
+_DATA = 0x0000
+
+

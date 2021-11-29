@@ -1,0 +1,10 @@
+XL2
+H 1 areas 7 global symbols
+S render_draw Ref0000
+S ren_newScene Ref0000
+S .__.ABS. Def0000
+S render_clear_asset Ref0000
+S render_clear Ref0000
+S render_clear_asset_both Ref0000
+S m_back_buffer Ref0000
+A _CODE size 0 flags 0 addr 0

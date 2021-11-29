@@ -1,0 +1,29 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.=  2710 L   |     .__.ABS.=  0000 G   |     .__.CPU.=  0000 L
+    .__.H$L.=  0000 L   |     _assets_   **** GX  |     _hero_sp   **** GX
+    _hero_sp   **** GX  |     _hero_sp   **** GX  |     _hero_sp   **** GX
+    _hero_sp   **** GX  |     _hero_sp   **** GX  |     _hero_sp   **** GX
+    _hero_sp   **** GX  |     _hero_sp   **** GX  |     _lifes_0   **** GX
+    _lifes_1   **** GX  |     _numbers   **** GX  |     _numbers   **** GX
+    _numbers   **** GX  |     _numbers   **** GX  |     _numbers   **** GX
+    _numbers   **** GX  |     _numbers   **** GX  |     _numbers   **** GX
+    _numbers   **** GX  |     _numbers   **** GX  |     draw_Lif   **** GX
+    draw_Sco   **** GX  |     get_Enem   **** GX  |     hero_dat   **** GX
+    level      **** GX  |     p_de    =  0000     |     p_size_d=  0006 
+    p_up_h  =  0009     |     p_up_l  =  0008     |     p_vx    =  0006 
+    p_vy    =  0007     |     pl_clear   **** GX  |     pl_clear   **** GX
+    pl_draw    **** GX  |     pl_move    **** GX  |     pl_moveA   **** GX
+    pl_moveK   **** GX  |     pl_updat   **** GX  |     reduce_l   **** GX
+    reset_pl   **** GX  |     shoot_da   **** GX
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE      size    0   flags    0
+

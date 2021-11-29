@@ -1,0 +1,63 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.=  2710 L   |     .__.ABS.=  0000 G   |     .__.CPU.=  0000 L
+    .__.H$L.=  0000 L   |     Decompre   **** GX  |     _assets_   **** GX
+    _assets_   **** GX  |     _c      =  0006     |     _enemy_s   **** GX
+    _hero_pa   **** GX  |     _hero_sp   **** GX  |     _hero_sp   **** GX
+    _hero_sp   **** GX  |     _hero_sp   **** GX  |     _hero_sp   **** GX
+    _hero_sp   **** GX  |     _hero_sp   **** GX  |     _hero_sp   **** GX
+    _hero_sp   **** GX  |     _level0_   **** GX  |     _level0_   **** GX
+    _lifes_0   **** GX  |     _lifes_1   **** GX  |     _main_th   **** GX
+    _menu2_p   **** GX  |     _menu_pa   **** GX  |     _numbers   **** GX
+    _numbers   **** GX  |     _numbers   **** GX  |     _numbers   **** GX
+    _numbers   **** GX  |     _numbers   **** GX  |     _numbers   **** GX
+    _numbers   **** GX  |     _numbers   **** GX  |     _numbers   **** GX
+    _shootSF   **** GX  |     _tile_pa   **** GX  |     _true_th   **** GX
+  0 active_b   0046 R   |     b_de    =  0000     |     b_size_d=  0006 
+    b_up_h  =  0009     |     b_up_l  =  0008     |     b_vx    =  0006 
+    b_vy    =  0007     |   0 bul_chec   00C3 R   |   0 bul_clea   00B6 GR
+  0 bul_copy   0078 R   |   0 bul_dest   007E R   |   0 bul_doFo   0121 GR
+  0 bul_draw   00C0 GR  |   0 bul_move   00FC GR  |   0 bul_new    004B GR
+  0 bul_upda   00B9 GR  |   0 bullet_d   003C R   |   0 bullet_d   003C R
+    bullet_d=  000A     |   0 bullet_v   0000 GR  |   0 bullet_v   0000 R
+  0 bullet_v   0000 R   |     bullet_v=  000A     |   0 bullet_v   000A R
+  0 bullet_v   000A R   |     bullet_v=  000A     |   0 bullet_v   0014 R
+  0 bullet_v   0014 R   |     bullet_v=  000A     |   0 bullet_v   001E R
+  0 bullet_v   001E R   |     bullet_v=  000A     |   0 bullet_v   0028 R
+  0 bullet_v   0028 R   |     bullet_v=  000A     |   0 bullet_v   0032 R
+  0 bullet_v   0032 R   |     bullet_v=  000A     |     cont_bul=  0006 
+  0 copy_bul   0049 R   |     cpct_akp   **** GX  |     cpct_akp   **** GX
+    cpct_akp   **** GX  |     cpct_akp   **** GX  |     cpct_akp   **** GX
+    cpct_akp   **** GX  |     cpct_dis   **** GX  |     cpct_dra   **** GX
+    cpct_dra   **** GX  |     cpct_etm   **** GX  |     cpct_etm   **** GX
+    cpct_get   **** GX  |     cpct_get   **** GX  |     cpct_isK   **** GX
+    cpct_mem   **** GX  |     cpct_sca   **** GX  |     cpct_set   **** GX
+    cpct_set   **** GX  |     cpct_set   **** GX  |     cpct_set   **** GX
+    cpct_set   **** GX  |     cpct_wai   **** GX  |     cpct_zx7   **** GX
+    de_h    =  0003     |     de_sp_h =  0005     |     de_sp_l =  0004 
+    de_w    =  0002     |     de_x    =  0000     |     de_y    =  0001 
+  0 dont_des   010E R   |     draw_Lif   **** GX  |     draw_Sco   **** GX
+    get_Enem   **** GX  |     hero_dat   **** GX  |     k_size_b=  000A 
+    level      **** GX  |     m_back_b   **** GX  |   0 m_next_b   0047 R
+  0 metodoB =  0134 R   |   0 no_bulle   013F R   |   0 no_colli   00FB R
+  0 no_crear   0077 R   |   0 non_stop   014A R   |   0 not        0156 R
+    p_de    =  0000     |     p_size_d=  0006     |     p_up_h  =  0009 
+    p_up_l  =  0008     |     p_vx    =  0006     |     p_vy    =  0007 
+    pl_clear   **** GX  |     pl_clear   **** GX  |     pl_draw    **** GX
+    pl_move    **** GX  |     pl_moveA   **** GX  |     pl_moveK   **** GX
+    pl_updat   **** GX  |     reduce_l   **** GX  |     ren_newS   **** GX
+    render_c   **** GX  |     render_c   **** GX  |     render_c   **** GX
+    render_d   **** GX  |   0 reset_bu   0140 GR  |     reset_ga   **** GX
+    reset_ga   **** GX  |     reset_pl   **** GX  |     shoot_da   **** GX
+    tilemap_   **** GX  |   0 vuelve_b   0132 R
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE      size  157   flags    0
+

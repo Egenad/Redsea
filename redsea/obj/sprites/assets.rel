@@ -1,0 +1,32 @@
+XL2
+H 9 areas 3 global symbols
+M assets
+O -mz80
+S .__.ABS. Def0000
+A _CODE size 40 flags 0 addr 0
+S _assets_sp_0 Def0000
+S _assets_sp_1 Def0020
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00
+R 00 00 00 00
+T 00 00 00 00 00 00 00 80 40 00 40 00 00 80 40 41
+R 00 00 00 00
+T 0E 00 82 80 40 41 82 80 40 00 00 80 00 80 40 00
+R 00 00 00 00
+T 1C 00 00 00 00 00
+R 00 00 00 00
+T 20 00
+R 00 00 00 00
+T 20 00 00 00 00 00 00 00 00 00 00 40 80 00 00 81
+R 00 00 00 00
+T 2E 00 42 00 00 81 42 00 00 40 80 00 00 00 00 00
+R 00 00 00 00
+T 3C 00 00 00 00 00
+R 00 00 00 00

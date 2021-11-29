@@ -1,0 +1,235 @@
+XL2
+H 1 areas 5A global symbols
+S cpct_setInterruptHandler_asm Ref0000
+S draw_Lifes Ref0000
+S _lifes_0 Ref0000
+S _lifes_1 Ref0000
+S pl_clear Ref0000
+S _assets_sp_0 Ref0000
+S cpct_setPalette_asm Ref0000
+S cpct_isKeyPressed_asm Ref0000
+S _assets_sp_1 Ref0000
+S cpct_setPALColour_asm Ref0000
+S cpct_akp_SFXInit_asm Ref0000
+S reset_game_win Ref0000
+S draw_Score Ref0000
+S cpct_akp_stop_asm Ref0000
+S pl_moveAsShooter Ref0000
+S pl_clear_mira Ref0000
+S cpct_akp_SFXPlay_asm Ref0000
+S render_draw Ref0000
+S cpct_drawSprite_asm Ref0000
+S reset_player Ref0000
+S _true_theme Ref0000
+S cpct_etm_drawTilemap4x8_ag_asm Ref0000
+S level Ref0000
+S _menu2_pack_end Ref0000
+S _numbers_00 Ref0000
+S cpct_akp_SFXStop_asm Ref0000
+S _tile_palette Ref0000
+S _numbers_01 Ref0000
+S reset_game Ref0000
+S _numbers_02 Ref0000
+S ren_newScene Ref0000
+S _level0_W Ref0000
+S _numbers_03 Ref0000
+S get_Enemy Ref0000
+S _numbers_04 Ref0000
+S _hero_sp_0 Ref0000
+S .__.ABS. Def0000
+S _numbers_05 Ref0000
+S _hero_sp_1 Ref0000
+S _numbers_06 Ref0000
+S _hero_sp_2 Ref0000
+S DecompressTilemap Ref0000
+S tilemap_ptr Ref0000
+S _numbers_07 Ref0000
+S _hero_sp_3 Ref0000
+S cpct_setVideoMemoryPage_asm Ref0000
+S _numbers_08 Ref0000
+S _hero_sp_4 Ref0000
+S cpct_memset_f64_asm Ref0000
+S _numbers_09 Ref0000
+S _hero_sp_5 Ref0000
+S pl_moveKeyboard Ref0000
+S _hero_sp_6 Ref0000
+S _hero_sp_7 Ref0000
+S render_clear_asset Ref0000
+S _hero_sp_8 Ref0000
+S shoot_data Ref0000
+S render_clear Ref0000
+S hero_data Ref0000
+S _menu_pack_end Ref0000
+S _hero_pal Ref0000
+S pl_draw Ref0000
+S cpct_zx7b_decrunch_s_asm Ref0000
+S cpct_waitVSYNC_asm Ref0000
+S cpct_setVideoMode_asm Ref0000
+S render_clear_asset_both Ref0000
+S pl_move Ref0000
+S _enemy_sc_sp Ref0000
+S _main_theme Ref0000
+S m_back_buffer Ref0000
+S reduce_life Ref0000
+S cpct_akp_musicInit_asm Ref0000
+S cpct_disableFirmware_asm Ref0000
+S cpct_akp_musicPlay_asm Ref0000
+S cpct_getRandom_mxor_u8_asm Ref0000
+S _level0_pack_end Ref0000
+S cpct_drawSolidBox_asm Ref0000
+S _shootSFX Ref0000
+S pl_update Ref0000
+S cpct_etm_setDrawTilemap4x8_ag_asm Ref0000
+S cpct_scanKeyboard_asm Ref0000
+S cpct_getScreenPtr_asm Ref0000
+A _CODE size 157 flags 0 addr 0
+S bul_draw Def00C0
+S bul_move Def00FC
+S bul_update Def00B9
+S bul_clear Def00B6
+S bul_new Def004B
+S bul_doForAll Def0121
+S bullet_vector Def0000
+S reset_bullets Def0140
+T 00 00
+R 00 00 00 00
+T 00 00
+R 00 00 00 00
+T 00 00
+R 00 00 00 00
+T 00 00 00 00 04 08 00 00 00 03 FC 00
+R 00 00 00 00 02 06 08 00 00 0A 00 00
+T 0A 00
+R 00 00 00 00
+T 0A 00
+R 00 00 00 00
+T 0A 00 00 00 04 08 00 00 00 03 FC 00
+R 00 00 00 00 02 06 08 00 00 0A 00 00
+T 14 00
+R 00 00 00 00
+T 14 00
+R 00 00 00 00
+T 14 00 00 00 04 08 00 00 00 03 FC 00
+R 00 00 00 00 02 06 08 00 00 0A 00 00
+T 1E 00
+R 00 00 00 00
+T 1E 00
+R 00 00 00 00
+T 1E 00 00 00 04 08 00 00 00 03 FC 00
+R 00 00 00 00 02 06 08 00 00 0A 00 00
+T 28 00
+R 00 00 00 00
+T 28 00
+R 00 00 00 00
+T 28 00 00 00 04 08 00 00 00 03 FC 00
+R 00 00 00 00 02 06 08 00 00 0A 00 00
+T 32 00
+R 00 00 00 00
+T 32 00
+R 00 00 00 00
+T 32 00 00 00 04 08 00 00 00 03 FC 00
+R 00 00 00 00 02 06 08 00 00 0A 00 00
+T 3C 00
+R 00 00 00 00
+T 3C 00
+R 00 00 00 00
+T 3C 00 00 00 04 08 00 00 00 03 FC 00 00 00 00
+R 00 00 00 00 02 06 08 00 00 0A 00 00 00 0D 00 00
+T 49 00 00 00
+R 00 00 00 00
+T 4B 00
+R 00 00 00 00
+T 4B 00 DD 7E 01 3D FA 77 00 06 06 3A 46 00 90 28
+R 00 00 00 00 00 07 00 00 00 0C 00 00
+T 59 00 1D 3A 46 00 3C 32 46 00 2A 47 00 11 0A 00
+R 00 00 00 00 00 04 00 00 00 08 00 00 00 0B 00 00
+T 67 00 19 22 47 00 B7 ED 52 DD 7E 00 77 23 DD 7E
+R 00 00 00 00 00 04 00 00
+T 75 00 01 77
+R 00 00 00 00
+T 77 00
+R 00 00 00 00
+T 77 00 C9
+R 00 00 00 00
+T 78 00
+R 00 00 00 00
+T 78 00 01 0A 00 ED B0 C9
+R 00 00 00 00
+T 7E 00
+R 00 00 00 00
+T 7E 00 11 0A 00 2A 47 00 B7 ED 52 DD 22 49 00 ED
+R 00 00 00 00 00 06 00 00 00 0D 00 00
+T 8C 00 5B 49 00 CD 78 00 11 0A 00 2A 47 00 B7 ED
+R 00 00 00 00 00 03 00 00 00 06 00 00 00 0C 00 00
+T 9A 00 52 11 3C 00 EB CD 78 00 3A 46 00 3D 32
+R 00 00 00 00 00 04 00 00 00 08 00 00 00 0B 00 00
+T A7 00 46 00 11 0A 00 2A 47 00 B7 ED 52 22 47 00
+R 00 00 00 00 00 02 00 00 00 08 00 00 00 0E 00 00
+T B5 00 C9
+R 00 00 00 00
+T B6 00
+R 00 00 00 00
+T B6 00 C3 00 00
+R 00 00 00 00 02 03 36 00
+T B9 00
+R 00 00 00 00
+T B9 00 DD 66 09 DD 6E 08 E9
+R 00 00 00 00
+T C0 00
+R 00 00 00 00
+T C0 00 C3 00 00
+R 00 00 00 00 02 03 11 00
+T C3 00
+R 00 00 00 00
+T C3 00 21 00 00 DD 7E 01 DD 46 03 80 23 46 90 28
+R 00 00 00 00 02 03 3A 00
+T D1 00 29 FA FB 00 DD 7E 00 DD 46 02 80 2B 46 90
+R 00 00 00 00 00 04 00 00
+T DF 00 28 1A FA FB 00 7E 23 23 46 80 DD 46 00 90
+R 00 00 00 00 00 05 00 00
+T ED 00 28 0C FA FB 00 CD 00 00 CD 00 00 CD
+R 00 00 00 00 00 05 00 00 02 08 46 00 02 0B 41 00
+T F9 00 7E 00
+R 00 00 00 00 00 02 00 00
+T FB 00
+R 00 00 00 00
+T FB 00 C9
+R 00 00 00 00
+T FC 00
+R 00 00 00 00
+T FC 00 CD C3 00 3E 70 DD 46 01 90 F2 0E 01 CD
+R 00 00 00 00 00 03 00 00 00 0C 00 00
+T 09 01 00 00 CD 7E 00
+R 00 00 00 00 02 02 41 00 00 05 00 00
+T 0E 01
+R 00 00 00 00
+T 0E 01 DD 7E 01 DD 86 07 DD 77 01 DD 7E 00 DD 86
+R 00 00 00 00
+T 1C 01 06 DD 77 00 C9
+R 00 00 00 00
+T 21 01
+R 00 00 00 00
+T 21 01 3A 46 00 3D FA 3F 01 3A 46 00 DD 21
+R 00 00 00 00 00 03 00 00 00 07 00 00 00 0A 00 00
+T 2D 01 00 00 22 34 01
+R 00 00 00 00 00 02 00 00 00 05 00 00
+T 32 01
+R 00 00 00 00
+T 32 01 F5 CD C0 00 F1 01 0A 00 DD 09 3D 20 F3
+R 00 00 00 00 00 04 00 00
+T 3F 01
+R 00 00 00 00
+T 3F 01 C9
+R 00 00 00 00
+T 40 01
+R 00 00 00 00
+T 40 01 3A 46 00 3D FA 56 01 3A 46 00
+R 00 00 00 00 00 03 00 00 00 07 00 00 00 0A 00 00
+T 4A 01
+R 00 00 00 00
+T 4A 01 DD 21 00 00 F5 CD 7E 00 F1 3D 20 F4
+R 00 00 00 00 00 04 00 00 00 08 00 00
+T 56 01
+R 00 00 00 00
+T 56 01 C9
+R 00 00 00 00

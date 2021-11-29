@@ -1,0 +1,168 @@
+XL2
+H 1 areas 3D global symbols
+S cpct_setInterruptHandler_asm Ref0000
+S cpct_setPalette_asm Ref0000
+S cpct_isKeyPressed_asm Ref0000
+S cpct_setPALColour_asm Ref0000
+S cpct_akp_SFXInit_asm Ref0000
+S reset_game_win Ref0000
+S cpct_akp_stop_asm Ref0000
+S cpct_akp_SFXPlay_asm Ref0000
+S render_draw Ref0000
+S cpct_drawSprite_asm Ref0000
+S _true_theme Ref0000
+S cpct_etm_drawTilemap4x8_ag_asm Ref0000
+S _menu2_pack_end Ref0000
+S cpct_akp_SFXStop_asm Ref0000
+S _tile_palette Ref0000
+S reset_game Ref0000
+S ren_newScene Ref0000
+S _level0_W Ref0000
+S .__.ABS. Def0000
+S DecompressTilemap Ref0000
+S tilemap_ptr Ref0000
+S cpct_setVideoMemoryPage_asm Ref0000
+S cpct_memset_f64_asm Ref0000
+S render_clear_asset Ref0000
+S render_clear Ref0000
+S _menu_pack_end Ref0000
+S _hero_pal Ref0000
+S _mastil_sp Ref0000
+S _camarote_sp Ref0000
+S cpct_zx7b_decrunch_s_asm Ref0000
+S cpct_waitVSYNC_asm Ref0000
+S cpct_setVideoMode_asm Ref0000
+S render_clear_asset_both Ref0000
+S _enemy_sc_sp Ref0000
+S _main_theme Ref0000
+S m_back_buffer Ref0000
+S cpct_akp_musicInit_asm Ref0000
+S cpct_disableFirmware_asm Ref0000
+S cpct_akp_musicPlay_asm Ref0000
+S cpct_getRandom_mxor_u8_asm Ref0000
+S _level0_pack_end Ref0000
+S cpct_drawSolidBox_asm Ref0000
+S _shootSFX Ref0000
+S _obstacle_sp_0 Ref0000
+S _obstacle_sp_1 Ref0000
+S cpct_etm_setDrawTilemap4x8_ag_asm Ref0000
+S cpct_scanKeyboard_asm Ref0000
+S cpct_getScreenPtr_asm Ref0000
+A _CODE size 107 flags 0 addr 0
+S mastil Def000E
+S camarote Def0015
+S obstacle Def0000
+S ob_damage Def0038
+S ob_level_1 Def0071
+S ob_level_3 Def008F
+S ob_level_4 Def00AD
+S ob_level_5 Def00CB
+S ob_level_6 Def00E9
+S ob_draw Def0050
+S ob_init Def001E
+S ob_draw_obstacles Def0053
+S obstacle2 Def0007
+T 00 00
+R 00 00 00 00
+T 00 00
+R 00 00 00 00
+T 00 00 00 00 06 0F 00 00 05
+R 00 00 00 00 02 06 2B 00
+T 07 00
+R 00 00 00 00
+T 07 00
+R 00 00 00 00
+T 07 00 00 00 06 0F 00 00 05
+R 00 00 00 00 02 06 2B 00
+T 0E 00
+R 00 00 00 00
+T 0E 00
+R 00 00 00 00
+T 0E 00 0C 18 04 32 00 00 FF
+R 00 00 00 00 02 06 1B 00
+T 15 00
+R 00 00 00 00
+T 15 00
+R 00 00 00 00
+T 15 00 3C 18 14 1A 00 00 FF 00 00
+R 00 00 00 00 02 06 1C 00
+T 1E 00
+R 00 00 00 00
+T 1E 00 21 00 00 CD 2B 00 21 07 00 CD
+R 00 00 00 00 00 03 00 00 00 06 00 00 00 09 00 00
+T 28 00 2B 00 C9
+R 00 00 00 00 00 02 00 00
+T 2B 00
+R 00 00 00 00
+T 2B 00 23 23 23 23 3E 00 00 77 23 23 3E 05 77 C9
+R 00 00 00 00 0B 07 2B 00
+T 38 00
+R 00 00 00 00
+T 38 00 3E 18 47 7E 90 28 10 23 23 23 23 23 7E 3D
+R 00 00 00 00
+T 46 00 20 06 2B 2B 36 00 00 23 23
+R 00 00 00 00 0B 07 2C 00
+T 4E 00
+R 00 00 00 00
+T 4E 00 77
+R 00 00 00 00
+T 4F 00
+R 00 00 00 00
+T 4F 00 C9
+R 00 00 00 00
+T 50 00
+R 00 00 00 00
+T 50 00 C3 00 00
+R 00 00 00 00 02 03 08 00
+T 53 00
+R 00 00 00 00
+T 53 00 3A 1D 00 3D FA 70 00 DD 21 00 00 CD
+R 00 00 00 00 00 03 00 00 00 07 00 00 00 0B 00 00
+T 5F 00 00 00 3A 1D 00 3D 3D FA 70 00 DD 21
+R 00 00 00 00 02 02 08 00 00 05 00 00 00 0A 00 00
+T 6B 00 07 00 C3 00 00
+R 00 00 00 00 00 02 00 00 02 05 08 00
+T 70 00
+R 00 00 00 00
+T 70 00 C9
+R 00 00 00 00
+T 71 00
+R 00 00 00 00
+T 71 00 3E 00 32 1D 00 DD 21 00 00 DD 36 00 00 DD
+R 00 00 00 00 00 05 00 00 00 09 00 00
+T 7F 00 36 01 00 DD 21 07 00 DD 36 00 00 DD 36 01
+R 00 00 00 00 00 07 00 00
+T 8D 00 00 C9
+R 00 00 00 00
+T 8F 00
+R 00 00 00 00
+T 8F 00 3E 01 32 1D 00 DD 21 00 00 DD 36 00 29 DD
+R 00 00 00 00 00 05 00 00 00 09 00 00
+T 9D 00 36 01 50 DD 21 07 00 DD 36 00 00 DD 36 01
+R 00 00 00 00 00 07 00 00
+T AB 00 00 C9
+R 00 00 00 00
+T AD 00
+R 00 00 00 00
+T AD 00 3E 01 32 1D 00 DD 21 00 00 DD 36 00 1C DD
+R 00 00 00 00 00 05 00 00 00 09 00 00
+T BB 00 36 01 38 DD 21 07 00 DD 36 00 00 DD 36 01
+R 00 00 00 00 00 07 00 00
+T C9 00 00 C9
+R 00 00 00 00
+T CB 00
+R 00 00 00 00
+T CB 00 3E 01 32 1D 00 DD 21 00 00 DD 36 00 20 DD
+R 00 00 00 00 00 05 00 00 00 09 00 00
+T D9 00 36 01 23 DD 21 07 00 DD 36 00 00 DD 36 01
+R 00 00 00 00 00 07 00 00
+T E7 00 00 C9
+R 00 00 00 00
+T E9 00
+R 00 00 00 00
+T E9 00 3E 02 32 1D 00 DD 21 00 00 DD 36 00 10 DD
+R 00 00 00 00 00 05 00 00 00 09 00 00
+T F7 00 36 01 50 DD 21 07 00 DD 36 00 30 DD 36 01
+R 00 00 00 00 00 07 00 00
+T 05 01 23 C9
+R 00 00 00 00

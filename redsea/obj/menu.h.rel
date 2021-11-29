@@ -1,0 +1,10 @@
+XL2
+H 1 areas 7 global symbols
+S init_menu Ref0000
+S _title_sp_0 Ref0000
+S _title_sp_1 Ref0000
+S _title_sp_2 Ref0000
+S drawTileMap Ref0000
+S .__.ABS. Def0000
+S changeLocation Ref0000
+A _CODE size 0 flags 0 addr 0

@@ -1,0 +1,13 @@
+XL2
+H 1 areas A global symbols
+S _assets_sp_1 Ref0000
+S bul_draw Ref0000
+S bul_move Ref0000
+S .__.ABS. Def0000
+S bul_update Ref0000
+S bul_clear Ref0000
+S bul_new Ref0000
+S bul_doForAll Ref0000
+S bullet_vector Ref0000
+S reset_bullets Ref0000
+A _CODE size 0 flags 0 addr 0
