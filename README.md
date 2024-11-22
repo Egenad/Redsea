@@ -1,7 +1,7 @@
 
 # Redsea
 
-![Redsea game](/website/redsea_web.png)
+![Redsea game](/redsea_web.png)
 
 Redsea is a **retro single-player shoot 'em up game** developed by three students from the University of Alicante for **[CPCRetroDev](http://cpcretrodev.byterealms.com/) 2018**.
 
